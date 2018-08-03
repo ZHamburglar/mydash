@@ -16,12 +16,18 @@ class App extends Component {
     super(props);
     this.state = {
       sidebarOpen: true,
+      docked: true
     };
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
 
-  onSetSidebarOpen(open) {
-    this.setState({sidebarOpen: open});
+  onSetSidebarOpen = ()=> {
+    // this.setState({sidebarOpen: open});
+    this.setState({docked: false, sidebarOpen: false})
+  }
+
+  onSetSidebarClose = ()=> {
+    // this.setState({sidebarOpen: open});
+    this.setState({docked: true, sidebarOpen: false})
   }
 
   render() {
@@ -30,14 +36,17 @@ class App extends Component {
         <Sidebar
         sidebar={<SideNavBar />}
         open={this.state.sidebarOpen}
+        docked={this.state.docked}
         onSetOpen={this.onSetSidebarOpen}
-        styles={{sidebar: { background: "white" }}}
+        styles={{sidebar: { background: "#2d353c" }}}
       >
         <div>
           <main>
             <div>
               <Route exact path="/" component={Home} />
-              <Button onClick={() => this.onSetSidebarOpen(true)}>Open Side Nav</Button>
+              <Button onClick={() => this.onSetSidebarOpen()}>Close Side Nav</Button>
+              <Button onClick={() => this.onSetSidebarClose()}>Open Side Nav</Button>
+
             </div>
           </main>
         </div>
