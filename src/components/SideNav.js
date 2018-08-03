@@ -42,6 +42,7 @@ const SeparatorTitleContainer = styled.div`
     margin: 10px 12px;
     padding: 4px 12px 2px;
 `;
+
 const SeparatorTitle = props => {
     return (
         <SeparatorTitleContainer>
@@ -50,42 +51,6 @@ const SeparatorTitle = props => {
         </SeparatorTitleContainer>
     );
 };
-
-const BasicSideNav = () =>
-    <SideNav highlightBgColor="#00bcd4" defaultSelected="sales">
-        <Title> Basic SideNav </Title>
-        <Nav id="dashboard">
-            <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText> Dashboard </NavText>
-        </Nav>
-        <Nav id="sales">
-            <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
-        </Nav>
-        <Nav id="products">
-            <NavIcon><Icon20 icon={ic_business_center} /></NavIcon>
-            <NavText> Products </NavText>
-        </Nav>
-        <Nav id="customers">
-            <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-            <NavText> Customers </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-                <NavText> Search </NavText>
-            </Nav>
-            <Nav id="sales2">
-                <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-                <NavText> Promote </NavText>
-            </Nav>
-            <Nav id="products2">
-                <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-                <NavText> Social Media </NavText>
-            </Nav>
-        </Nav>
-        <Nav id="orders">
-            <NavIcon><Icon20 icon={ic_format_list_bulleted} /></NavIcon>
-            <NavText> Orders </NavText>
-        </Nav>
-    </SideNav>;
 
 const NavMain = {
     dashboard: { title: 'Dashboard', icon: ic_aspect_ratio },
@@ -173,6 +138,9 @@ const SideNavWithAlerts = () =>
                 </span>
             </NavText>
         </Nav>
+        <SeparatorTitle>
+            <div> Customers and Sales</div>
+        </SeparatorTitle>
 
         <Nav id="customers">
             <NavIcon><Icon20 icon={ic_people} /></NavIcon>
@@ -209,291 +177,13 @@ const SideNavWithAlerts = () =>
         </Nav>
     </SideNav>;
 
-const ControlledNav = () =>
-    <SideNav
-        hoverBgColor="#232a2f"
-        hoverColor="red"
-        highlightBgColor="#00acac"
-        selected="customers/sales2"
-        highlightColor="#FFF"
-    >
-        <div />
-        <Nav id="dashboard">
-            <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText> Dashboard </NavText>
-        </Nav>
-
-        <Nav id="products">
-            <NavIcon><Icon20 icon={ic_business_center} /></NavIcon>
-            <NavText> Products </NavText>
-        </Nav>
-        <Nav id="orders">
-            <NavIcon><Icon20 icon={ic_format_list_bulleted} /></NavIcon>
-            <NavText>
-                {' '}<span style={{ paddingRight: 6 }}>Orders</span>{' '}
-                <span
-                    style={{
-                        textAlign: 'center',
-                        lineHeight: '16px',
-                        height: 16,
-                        width: 16,
-                        margin: '0 auto',
-                        borderRadius: '50%',
-                        fontSize: 9,
-                        display: 'inline-block',
-                        color: '#FFF',
-                        background: '#ff5b57'
-                    }}
-                >
-          10
-                </span>
-            </NavText>
-        </Nav>
-
-        <Nav id="customers" expanded>
-            <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-            <NavText> Customers </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-                <NavText> Search </NavText>
-            </Nav>
-            <Nav
-                id="sales2"
-                onNavClick={() => {
-                    console.log('Promote clicked!', arguments);
-                }}
-            >
-                <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-                <NavText> Promote </NavText>
-            </Nav>
-            <Nav id="products2">
-                <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-                <NavText> Social Media </NavText>
-            </Nav>
-        </Nav>
-        <Nav
-            id="sales"
-            onNavClick={() => {
-                console.log('Sales clicked!', arguments);
-            }}
-        >
-            <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
-        </Nav>
-        <Nav id="deliveries">
-            <NavIcon><Icon20 icon={ic_shopping_cart} /></NavIcon>
-            <NavText> Deliveries </NavText>
-        </Nav>
-    </SideNav>;
 
 
 class SideBar extends Component {
   render() {
     return (
       <div>
-          {/* <SideNav
-        highlightBgColor="#eee"
-        defaultSelected="products"
-        highlightColor="#E91E63"
-    >
-        <SeparatorTitle><div>Main</div></SeparatorTitle>
-        {Object.keys(NavMain).map(key => {
-            //dynamically created the navs
-            return (
-                <Nav key={key} id={key}>
-                    <NavIcon><Icon20 icon={NavMain[key].icon} /></NavIcon>
-                    <NavText> {NavMain[key].title} </NavText>
-                </Nav>
-            );
-        })}
-        <SeparatorTitle>
-            <div> Customers and Sales</div>
-        </SeparatorTitle>
-        <Nav id="customers">
-            <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-            <NavText> Customers </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-                <NavText> Search </NavText>
-            </Nav>
-            <Nav id="sales2">
-                <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-                <NavText> Promote </NavText>
-            </Nav>
-            <Nav id="products2">
-                <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-                <NavText> Social Media </NavText>
-            </Nav>
-        </Nav>
-        <Nav id="sales">
-            <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
-        </Nav>
-    </SideNav>; */}
-
-
-
-
-
-
-
-
-    {/* <SideNav
-        hoverBgColor="#232a2f"
-        hoverColor="red"
-        highlightBgColor="#00acac"
-        defaultSelected="products"
-        highlightColor="#FFF"
-    >
-        <div />
-        <Nav id="dashboard">
-            <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText> Dashboard </NavText>
-        </Nav>
-
-        <Nav id="products">
-            <NavIcon><Icon20 icon={ic_business_center} /></NavIcon>
-            <NavText> Products </NavText>
-        </Nav>
-        <Nav id="orders">
-            <NavIcon><Icon20 icon={ic_format_list_bulleted} /></NavIcon>
-            <NavText>
-                {' '}<span style={{ paddingRight: 6 }}>Orders</span>{' '}
-                <span
-                    style={{
-                        textAlign: 'center',
-                        lineHeight: '16px',
-                        height: 16,
-                        width: 16,
-                        margin: '0 auto',
-                        borderRadius: '50%',
-                        fontSize: 9,
-                        display: 'inline-block',
-                        color: '#FFF',
-                        background: '#ff5b57'
-                    }}
-                >
-          10
-                </span>
-            </NavText>
-        </Nav>
-
-        <Nav id="customers">
-            <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-            <NavText> Customers </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-                <NavText> Search </NavText>
-            </Nav>
-            <Nav
-                id="sales2"
-                onNavClick={() => {
-                    console.log('Promote clicked!', arguments);
-                }}
-            >
-                <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-                <NavText> Promote </NavText>
-            </Nav>
-            <Nav id="products2">
-                <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-                <NavText> Social Media </NavText>
-            </Nav>
-        </Nav>
-        <Nav
-            id="sales"
-            onNavClick={() => {
-                console.log('Sales clicked!', arguments);
-            }}
-        >
-            <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
-        </Nav>
-        <Nav id="deliveries">
-            <NavIcon><Icon20 icon={ic_shopping_cart} /></NavIcon>
-            <NavText> Deliveries </NavText>
-        </Nav>
-    </SideNav> */}
-
-
-
-
-
-    {/* <SideNav
-        hoverBgColor="#232a2f"
-        hoverColor="red"
-        highlightBgColor="#00acac"
-        selected="customers/sales2"
-        highlightColor="#FFF"
-    >
-        <div />
-        <Nav id="dashboard">
-            <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText> Dashboard </NavText>
-        </Nav>
-
-        <Nav id="products">
-            <NavIcon><Icon20 icon={ic_business_center} /></NavIcon>
-            <NavText> Products </NavText>
-        </Nav>
-        <Nav id="orders">
-            <NavIcon><Icon20 icon={ic_format_list_bulleted} /></NavIcon>
-            <NavText>
-                {' '}<span style={{ paddingRight: 6 }}>Orders</span>{' '}
-                <span
-                    style={{
-                        textAlign: 'center',
-                        lineHeight: '16px',
-                        height: 16,
-                        width: 16,
-                        margin: '0 auto',
-                        borderRadius: '50%',
-                        fontSize: 9,
-                        display: 'inline-block',
-                        color: '#FFF',
-                        background: '#ff5b57'
-                    }}
-                >
-          10
-                </span>
-            </NavText>
-        </Nav>
-
-        <Nav id="customers" expanded>
-            <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-            <NavText> Customers </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-                <NavText> Search </NavText>
-            </Nav>
-            <Nav
-                id="sales2"
-                onNavClick={() => {
-                    console.log('Promote clicked!', arguments);
-                }}
-            >
-                <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-                <NavText> Promote </NavText>
-            </Nav>
-            <Nav id="products2">
-                <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-                <NavText> Social Media </NavText>
-            </Nav>
-        </Nav>
-        <Nav
-            id="sales"
-            onNavClick={() => {
-                console.log('Sales clicked!', arguments);
-            }}
-        >
-            <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
-        </Nav>
-        <Nav id="deliveries">
-            <NavIcon><Icon20 icon={ic_shopping_cart} /></NavIcon>
-            <NavText> Deliveries </NavText>
-        </Nav>
-    </SideNav> */}
  <div style={{ display: 'flex' }}>
-                <BaseContainer style={{ background: '#2c3e50', color: '#FFF' }}>
-                    <BasicSideNav />
-                </BaseContainer>
-                <Separator />
                 <BaseContainer
                     style={{
                         background: '#FFF',
@@ -521,23 +211,14 @@ class SideBar extends Component {
                         </div>
                         <div style={{ paddingLeft: 6, paddingTop: 6 }}>
                             <div style={{ fontSize: 12, color: '#E5E5E5' }}>
-                                {' '}Warren Mira{' '}
+                                {' '}Warren Mirrrra{' '}
                             </div>
                             <div style={{ fontSize: 11 }}> Ninja Developer </div>
                         </div>
                     </div>
                     <SideNavWithAlerts />
                 </BaseContainer>
-                <Separator />
-                <BaseContainer
-                    style={{
-                        background: '#FFF',
-                        color: '#444',
-                        boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'
-                    }}
-                >
-                    <ControlledNav />
-                </BaseContainer>
+
                 <Separator />
             </div>
 
