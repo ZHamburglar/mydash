@@ -3,10 +3,15 @@ import React, { Component } from 'react';
 import Sidebar from 'react-sidebar';
 import { Button } from 'react-bootstrap'
 
+import { connect } from 'react-redux';
+
+import * as actions from './actions';
+
 import { Route } from 'react-router-dom';
 import Home from './routes/Home';
 
 import SideNavBar from './components/SideNav';
+import NavigationBar from './components/NavigationBar';
 
 const mql = window.matchMedia(`(min-width: 800px)`);
 
@@ -35,20 +40,27 @@ class App extends Component {
       <div>
         <Sidebar
         sidebar={<SideNavBar />}
-        open={this.state.sidebarOpen}
-        docked={this.state.docked}
+        open={this.props.sidebarOpen}
+        docked={this.props.docked}
         onSetOpen={this.onSetSidebarOpen}
         styles={{sidebar: { background: "#2d353c" }}}
       >
         <div>
+          <NavigationBar />
+
+
+
+
           <main>
             <div>
               <Route exact path="/" component={Home} />
-              <Button onClick={() => this.onSetSidebarOpen()}>Close Side Nav</Button>
-              <Button onClick={() => this.onSetSidebarClose()}>Open Side Nav</Button>
+              
 
             </div>
           </main>
+
+
+
         </div>
 
         </Sidebar>
@@ -59,5 +71,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = ({ sidebarOCReducer }) => {
+  const { sidebarOpen, docked } = sidebarOCReducer
+  return { sidebarOpen, docked }
+}
 
-export default App;
+
+
+
+export default connect(mapStateToProps, actions)(App);

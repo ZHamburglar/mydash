@@ -1,1 +1,1 @@
-export * from './search_actions';
+export * from './sidebar_oc_actions';
