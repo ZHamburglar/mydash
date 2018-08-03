@@ -9,6 +9,7 @@ import { ic_business_center } from 'react-icons-kit/md/ic_business_center';
 import { ic_format_list_bulleted } from 'react-icons-kit/md/ic_format_list_bulleted';
 import { ic_people } from 'react-icons-kit/md/ic_people';
 import { ic_shopping_cart } from 'react-icons-kit/md/ic_shopping_cart';
+import {ic_settings} from 'react-icons-kit/md/ic_settings'
 
 
 const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
@@ -110,6 +111,11 @@ const SideNavWithAlerts = () =>
         <Nav id="deliveries">
             <NavIcon><Icon20 icon={ic_shopping_cart} /></NavIcon>
             <NavText> Deliveries </NavText>
+        </Nav>
+
+        <Nav id="settings">
+            <NavIcon><Icon20 icon={ic_settings} /></NavIcon>
+            <NavText> Settings </NavText>
         </Nav>
     </SideNav>;
 
