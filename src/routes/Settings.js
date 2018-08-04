@@ -4,7 +4,12 @@ class Settings extends Component {
   render() {
     return (
       <div>
-          Home Page
+          <p>Settings Page</p>
+          <p>Settings Page</p>
+          <p>Settings Page</p>
+          <p>Settings Page</p>
+          <p>Settings Page</p>
+          <p>Settings Page</p>
       </div>
     );
   }

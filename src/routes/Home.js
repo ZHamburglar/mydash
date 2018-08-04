@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
+
+  componentWillUnmount() {
+  }
+
   render() {
     return (
       <div>
-          Home Page
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
       </div>
     );
   }
