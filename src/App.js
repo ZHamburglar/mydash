@@ -9,11 +9,16 @@ import { bindActionCreators } from 'redux';
 
 import { Route, Switch,  withRouter } from 'react-router-dom';
 
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+
+
 import Home from './routes/Home';
 import Settings from './routes/Settings';
 
 import SideNavBar from './components/SideNav';
 import NavigationBar from './components/NavigationBar';
+
+import PageHeader from './components/PageHeader'
 
 class App extends Component {
 
@@ -40,7 +45,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Sidebar
+        {/* <Sidebar
         sidebar={<SideNavBar />}
         open={this.props.sidebarOpen}
         docked={this.props.docked}
@@ -59,7 +64,8 @@ class App extends Component {
               </Switch>
           </main>
         </div>
-        </Sidebar>
+        </Sidebar> */}
+        <PageHeader />
       </div>
     );
   }
