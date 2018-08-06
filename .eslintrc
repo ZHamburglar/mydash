@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "plugin:flowtype/recommended",
+        "airbnb",
+        "prettier",
+        "prettier/react"
+    ],
+    "plugins": ["prettier", "flowtype"],
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "array-bracket-spacing": ["warn", "never"],
+        "object-curly-spacing": ["always"]
+    }
+}

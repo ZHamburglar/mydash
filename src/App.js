@@ -114,7 +114,7 @@ class App extends Component {
                 </div>
               </Content>
               <Footer style={{ textAlign: 'center' }}>
-                Bear Mobile ©2018
+                Bear Mobile © 2018 
               </Footer>
             </Layout>
         </Layout>

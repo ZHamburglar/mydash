@@ -1,6 +1,6 @@
 import {
   GET_WEATHER,
-  RETRIEVE_WEATHER
+  RETRIEVED_WEATHER
 } from '../actions/types';
 
 const INITIAL_STATE = {
