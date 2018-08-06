@@ -7,3 +7,6 @@ export const SEARCH_FAILURE = 'search_failure';
 
 export const CLOSE_SIDEBAR = 'close_sidebar';
 export const OPEN_SIDEBAR = 'open_sidebar';
+
+export const GET_WEATHER = 'get_weather';
+export const RETRIEVED_WEATHER = 'retrieve_weather';

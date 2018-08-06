@@ -19,7 +19,7 @@ Twitter: https://developer.twitter.com/en/docs/basics/getting-started
 
 Picture API: TBD
 
-Cryptocurrency:
+Currency: https://currencylayer.com/
 
 
 

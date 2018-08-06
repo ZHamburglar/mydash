@@ -1,24 +1,23 @@
 import {
-  OPEN_SIDEBAR,
-  CLOSE_SIDEBAR
+  GET_WEATHER,
+  RETRIEVE_WEATHER
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  sidebarOpen: true,
-  docked: true
+  loadingWeather: false,
+  weather: []
 }
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case OPEN_SIDEBAR:
+    case GET_WEATHER:
       return { ...state,
-        docked: true,
-        sidebarOpen: false
+        loadingWeather: true
       };
-    case CLOSE_SIDEBAR:
+    case RETRIEVED_WEATHER:
       return { ...state,
-        docked: false,
-        sidebarOpen: false
+        loadingWeather: false,
+        weather: action.payload
       };
     default:
       return state;

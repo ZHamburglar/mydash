@@ -9,7 +9,7 @@ const FormItem = Form.Item;
 
 
 
-class SettingComponent extends Component {
+class SettingGeneral extends Component {
 
     state = {
         expand: false,
@@ -44,7 +44,7 @@ render() {
                   
         <Content style={{ background: '#f0f2f5', padding: 24, margin: 0 }}>
 
-            Google Calendar
+            Location
             <Switch onChange={this.onChange} />
 
             <Form
@@ -53,26 +53,16 @@ render() {
             >
                 <Row>
                     <Col span={8} key={1} style={{ display: this.state.expand ? 'block' : 'none' }}>
-                        <FormItem label={"User"}>
+                        <FormItem label={"Zipcode"}>
                         
-                            <Input placeholder="Account" />
+                            <Input placeholder="Zipcode" />
 
                         
                         </FormItem>
                     </Col>
                     
                 </Row>
-            <Row>
-                <Col span={8} key={1} style={{ display: this.state.expand ? 'block' : 'none' }}>
-                    <FormItem label={"Password"}>
-                    
-                        <Input placeholder="Password" />
 
-                    
-                    </FormItem>
-                </Col>
-                
-            </Row>
     
 
         <Row>
@@ -96,4 +86,4 @@ render() {
 }
 
 
-export default SettingComponent;
+export default SettingGeneral;
