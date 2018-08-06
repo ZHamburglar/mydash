@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Switch from "react-switch";
 
+import SettingComponent from '../components/SettingComponent'
+
 
 
 class Settings extends Component {
@@ -17,7 +19,8 @@ class Settings extends Component {
   render() {
     return (
       <div>
-          <p>Settings Page</p>
+          <p>Google Login</p>
+          <SettingComponent />
           <p>Settings Page</p>
           <p>Settings Page</p>
           <p>Settings Page</p>

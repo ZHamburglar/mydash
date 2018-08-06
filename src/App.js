@@ -18,7 +18,7 @@ import Settings from './routes/Settings';
 import SideNavBar from './components/SideNav';
 import NavigationBar from './components/NavigationBar';
 
-import PageHeader from './components/PageHeader';
+import MainHeader from './components/MainHeader';
 
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -56,26 +56,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/* <Sidebar
-        sidebar={<SideNavBar />}
-        open={this.props.sidebarOpen}
-        docked={this.props.docked}
-        styles={{sidebar: { background: "#2d353c" }}}
-      >
-
-
-        <div>
-          <div>
-            <NavigationBar />
-          </div>
-          <main>
-              <Switch>
-                <Route exact path="/" render={this.renderHome} />
-                <Route exact path="/settings" render={this.renderSettings} />
-              </Switch>
-          </main>
-        </div>
-        </Sidebar> */}
           <Layout style={{ minHeight: '100vh' }}>
             <Sider
               collapsible
@@ -83,38 +63,42 @@ class App extends Component {
               onCollapse={this.onCollapse}
             >
               <div className="logo" />
-              <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                <Menu.Item key="1">
-                  <Icon type="pie-chart" />
-                  <span>Option 1</span>
-                </Menu.Item>
-                <Menu.Item key="2">
-                  <Icon type="desktop" />
-                  <span>Option 2</span>
-                </Menu.Item>
-                <SubMenu
-                  key="sub1"
-                  title={<span><Icon type="user" /><span>User</span></span>}
-                >
-                  <Menu.Item key="3">Tom</Menu.Item>
-                  <Menu.Item key="4">Bill</Menu.Item>
-                  <Menu.Item key="5">Alex</Menu.Item>
-                </SubMenu>
-                <SubMenu
-                  key="sub2"
-                  title={<span><Icon type="team" /><span>Team</span></span>}
-                >
-                  <Menu.Item key="6">Team 1</Menu.Item>
-                  <Menu.Item key="8">Team 2</Menu.Item>
-                </SubMenu>
-                <Menu.Item key="9">
-                  <Icon type="file" />
-                  <span>File</span>
-                </Menu.Item>
-              </Menu>
+                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                  <Menu.Item key="1" onClick={() => this.props.changePageHome()}>
+                    <Icon type="pie-chart" />
+                    <span>Option 1</span>
+                  </Menu.Item>
+                  <Menu.Item key="2">
+                    <Icon type="desktop" />
+                    <span>Option 2</span>
+                  </Menu.Item>
+                  <SubMenu
+                    key="sub1"
+                    title={<span><Icon type="user" /><span>User</span></span>}
+                  >
+                    <Menu.Item key="3">Tom</Menu.Item>
+                    <Menu.Item key="4">Bill</Menu.Item>
+                    <Menu.Item key="5">Alex</Menu.Item>
+                  </SubMenu>
+                  <SubMenu
+                    key="sub2"
+                    title={<span><Icon type="team" /><span>Team</span></span>}
+                  >
+                    <Menu.Item key="6">Team 1</Menu.Item>
+                    <Menu.Item key="8">Team 2</Menu.Item>
+                  </SubMenu>
+                  <Menu.Item key="9">
+                    <Icon type="file" />
+                    <span>File</span>
+                  </Menu.Item>
+                  <Menu.Item key="10" onClick={() => this.props.changePageSettings()}>
+                    <Icon type="file" />
+                    <span>Settings</span>
+                  </Menu.Item>
+                </Menu>
             </Sider>
             <Layout>
-              <Header style={{ background: '#fff', padding: 0 }} />
+              <MainHeader />
               <Content style={{ margin: '0 16px' }}>
                 {/* <Breadcrumb style={{ margin: '16px 0' }}>
                   <Breadcrumb.Item>User</Breadcrumb.Item>
@@ -152,4 +136,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 
 
 
-export default withRouter(connect(mapStateToProps, actions)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

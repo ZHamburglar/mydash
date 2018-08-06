@@ -5,6 +5,7 @@ APIs:
 
 
 Google Calendar: https://developers.google.com/calendar/
+https://blog.daftcode.pl/react-calendar-with-google-calendar-as-cms-tutorial-5f5d81e425a9
 
 Google Contacts: https://developers.google.com/contacts/v3/
 

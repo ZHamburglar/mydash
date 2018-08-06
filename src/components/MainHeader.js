@@ -14,7 +14,7 @@ class MainHeader extends Component {
   render() {
     return (
       <div>
-        <Header style={{ background: '#f0f2f5', padding: 0 }} />
+        <p>Header Here</p>
       </div>
     );
   }
