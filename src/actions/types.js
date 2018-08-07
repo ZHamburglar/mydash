@@ -11,3 +11,4 @@ export const OPEN_SIDEBAR = 'open_sidebar';
 export const GET_WEATHER = 'get_weather';
 export const RETRIEVED_WEATHER = 'retrieve_weather';
 export const ERROR_WEATHER = 'error_weather';
+export const CHANGE_ZIPCODE = 'change_zipcode';

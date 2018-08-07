@@ -6,29 +6,23 @@ import * as actions from '../actions'
 
 class WeatherComponent extends Component {
 
-  componentWillUnmount() {
-  }
+
 
 
   componentWillMount() {
-    this.props.getWeather()
+  }
 
+  componentWillUnmount() {
   }
 
 
   renderWeather = () => {
     console.log("weather stuff")
-    if( 2 > 1){
-
-    }
-
   }
 
   
 
   render() {
-
-
     return (
       <div>
           <p>Weather</p>

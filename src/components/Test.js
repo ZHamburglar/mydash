@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import styled from 'styled-components';
-
 import SideNav, { Nav, NavIcon, NavText } from 'react-sidenav';
 import SvgIcon from 'react-icons-kit';
 import { ic_aspect_ratio } from 'react-icons-kit/md/ic_aspect_ratio';

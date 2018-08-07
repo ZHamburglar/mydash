@@ -17,7 +17,6 @@ import Settings from './routes/Settings';
 // import NavigationBar from './components/NavigationBar';
 
 import MainHeader from './components/MainHeader';
-
 const { Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -26,10 +25,6 @@ class App extends Component {
     collapsed: false,
   };
 
-  onCollapse = (collapsed) => {
-    console.log(collapsed);
-    this.setState({ collapsed });
-  }
 
   componentWillMount() {
   }
@@ -37,14 +32,15 @@ class App extends Component {
   componentWillUnmount() {
   }
 
-
-  renderHome = () => {
-      return <Home />;
+  onCollapse = (collapsed) => {
+    console.log(collapsed);
+    this.setState({ collapsed });
   }
 
-  renderSettings = () => {
-      return <Settings />;
-  }    
+
+  renderHome = () => <Home />
+
+  renderSettings = () => <Settings />    
 
   
   render() {

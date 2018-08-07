@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
+import * as actions from '../actions'
+
 import { Form, Row, Col, Input, Button, Icon, Layout, Switch } from 'antd';
 
 const { Content} = Layout;
 
 const FormItem = Form.Item;
 
+
+
 class SettingGeneral extends Component {
     state = {
         expand: false,
+        zipcode: ''
     };
 
     componentWillUnmount() {}
@@ -23,11 +30,14 @@ class SettingGeneral extends Component {
       console.log(this.state);
   };
 
+    zipcodeChange = (e) => {
+        this.props.zipCodeChange(e.target.value)
+
+    }
+
     handleSearch = e => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            console.log('Received values of form: ', values);
-        });
+        // set the zipcode in the reducer
     };
 
     render() {
@@ -53,7 +63,7 @@ class SettingGeneral extends Component {
                                 }}
                             >
                                 <FormItem label="Zipcode">
-                                    <Input placeholder="Zipcode" />
+                                    <Input placeholder="Zipcode" onChange={value => this.zipcodeChange(value)} value={this.props.zipCode}/>
                                 </FormItem>
                             </Col>
                         </Row>
@@ -80,4 +90,9 @@ class SettingGeneral extends Component {
     }
 }
 
-export default SettingGeneral;
+const mapStateToProps = ({ generalSettingsReducer }) => {
+    const { loadingWeather , weather, weatherError, zipCode } = generalSettingsReducer
+    return { loadingWeather , weather, weatherError, zipCode }
+  }
+
+export default connect(mapStateToProps, actions)(SettingGeneral);
