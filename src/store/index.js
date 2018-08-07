@@ -15,7 +15,8 @@ export const history = createHistory();
 
 const persistConfig = {
     key: 'root', 
-    storage
+	storage,
+	whitelist: ['']
 };
 
 export const store = createStore(

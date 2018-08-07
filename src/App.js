@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
-import Sidebar from 'react-sidebar';
 
 import { connect } from 'react-redux';
-import * as actions from './actions';
+// import * as actions from './actions';
 
 import { push } from 'connected-react-router';
 import { bindActionCreators } from 'redux';
 
 import { Route, Switch,  withRouter } from 'react-router-dom';
 
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 
 
 import Home from './routes/Home';
 import Settings from './routes/Settings';
 
-import SideNavBar from './components/SideNav';
-import NavigationBar from './components/NavigationBar';
+// import NavigationBar from './components/NavigationBar';
 
 import MainHeader from './components/MainHeader';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
 class App extends Component {
@@ -34,13 +32,9 @@ class App extends Component {
   }
 
   componentWillMount() {
-    // this.unlisten = this.props.history.listen((location, action) => {
-    //   console.log("on route change");
-    // });
   }
 
   componentWillUnmount() {
-      // this.unlisten();
   }
 
 
