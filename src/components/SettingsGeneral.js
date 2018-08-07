@@ -90,8 +90,9 @@ class SettingGeneral extends Component {
     }
 }
 
-const mapStateToProps = ({ generalSettingsReducer }) => {
-    const { loadingWeather , weather, weatherError, zipCode } = generalSettingsReducer
+const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer }) => {
+    const { loadingWeather , weather, weatherError } = generalSettingsReducer
+    const { zipCode } = permanentSettingsReducer
     return { loadingWeather , weather, weatherError, zipCode }
   }
 

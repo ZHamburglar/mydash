@@ -12,7 +12,8 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    this.props.getWeather()
+    console.log('this is props: ', this.props.zipCode)
+    this.props.getWeather(this.props.zipCode)
   }
 
   renderWeather = () => {
@@ -25,7 +26,11 @@ class Home extends Component {
       return (
         <div>There is weather {this.props.weather.main.temp}</div>
       )
-    } 
+    } else {
+      return (
+        <div>Booooo</div>
+      )
+    }
 
   }
 
@@ -48,9 +53,11 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = ({ generalSettingsReducer }) => {
+const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer }) => {
   const { loadingWeather , weather, weatherError } = generalSettingsReducer
-  return { loadingWeather , weather, weatherError }
+  const { zipCode } = permanentSettingsReducer
+
+  return { loadingWeather , weather, weatherError, zipCode }
 }
 
 

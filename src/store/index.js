@@ -16,7 +16,7 @@ export const history = createHistory();
 const persistConfig = {
     key: 'root', 
 	storage,
-	whitelist: ['']
+	whitelist: ['permanentSettingsReducer']
 };
 
 export const store = createStore(

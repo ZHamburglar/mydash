@@ -2,14 +2,12 @@ import {
   GET_WEATHER,
   RETRIEVED_WEATHER,
   ERROR_WEATHER,
-  CHANGE_ZIPCODE
 } from '../actions/types';
 
 const INITIAL_STATE = {
   loadingWeather: false,
   weather: '',
   weatherError: '',
-  zipCode: ''
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -19,10 +17,6 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state,
         loadingWeather: true
       };
-    case CHANGE_ZIPCODE:
-      return { ...state,
-        zipCode: action.payload
-      }
     case RETRIEVED_WEATHER:
       console.log("got the weather")
       return { ...state,
