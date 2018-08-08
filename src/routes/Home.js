@@ -56,7 +56,6 @@ class Home extends Component {
 const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer }) => {
   const { loadingWeather , weather, weatherError } = generalSettingsReducer
   const { zipCode } = permanentSettingsReducer
-
   return { loadingWeather , weather, weatherError, zipCode }
 }
 

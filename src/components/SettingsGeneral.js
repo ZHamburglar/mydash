@@ -2,42 +2,55 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import * as actions from '../actions'
+import * as actions from '../actions';
 
 import { Form, Row, Col, Input, Button, Icon, Layout, Switch } from 'antd';
 
-const { Content} = Layout;
+const { Content } = Layout;
 
 const FormItem = Form.Item;
-
-
 
 class SettingGeneral extends Component {
     state = {
         expand: false,
-        zipcode: ''
+        zipcode: this.props.zipCode,
+        loading: false,
+        iconLoading: false
     };
 
-    componentWillUnmount() {}
 
-    onChange = () => {
-        console.log('this was changed');
-    };
+    // componentDidMount () {
+    //     this.setState({ zipcode: this.props.zipCode });
+    // }
 
     toggle = () => {
-      const { expand } = this.state;
-      this.setState({ expand: !expand });
-      console.log(this.state);
-  };
+        const { expand } = this.state;
+        this.setState({ expand: !expand });
+        console.log(this.state);
+    };
 
-    zipcodeChange = (e) => {
-        this.props.zipCodeChange(e.target.value)
+    zipCodeChange = (e) => {
+        this.setState({ zipcode: e.target.value });
+        console.log("new state", this.state)
+    };
 
-    }
+
 
     handleSearch = e => {
         e.preventDefault();
         // set the zipcode in the reducer
+    };
+
+
+    // Button OnPress
+    saveZipCode = () => {
+        console.log('state', this.state, this.props)
+
+        this.props.zipCodeChange(this.state.zipcode)
+    };
+
+    enterIconLoading = () => {
+        this.setState({ iconLoading: true });
     };
 
     render() {
@@ -59,19 +72,29 @@ class SettingGeneral extends Component {
                                 style={{
                                     display: this.state.expand
                                         ? 'block'
-                                        : 'none',
+                                        : 'none'
                                 }}
                             >
                                 <FormItem label="Zipcode">
-                                    <Input placeholder="Zipcode" onChange={value => this.zipcodeChange(value)} value={this.props.zipCode}/>
+                                    <Input
+                                        placeholder="Zipcode"
+                                        onChange={this.zipCodeChange}
+                                        value={this.state.zipcode}
+                                    />
                                 </FormItem>
+                                <Button
+                                    type="primary"
+                                    loading={this.state.loading}
+                                    onClick={() => this.props.zipCodeChange(this.state.zipcode)}
+                                >
+                                    Click me!
+                                </Button>
                             </Col>
+
                         </Row>
                         <Row>
                             <Col span={24} style={{ textAlign: 'right' }}>
-                                <Button type="primary" htmlType="submit">
-                                    Search
-                                </Button>
+                               
                                 <a
                                     style={{ marginLeft: 8, fontSize: 12 }}
                                     onClick={this.toggle}
@@ -90,10 +113,16 @@ class SettingGeneral extends Component {
     }
 }
 
-const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer }) => {
-    const { loadingWeather , weather, weatherError } = generalSettingsReducer
-    const { zipCode } = permanentSettingsReducer
-    return { loadingWeather , weather, weatherError, zipCode }
-  }
+const mapStateToProps = ({
+    generalSettingsReducer,
+    permanentSettingsReducer
+}) => {
+    const { loadingWeather, weather, weatherError } = generalSettingsReducer;
+    const { zipCode } = permanentSettingsReducer;
+    return { loadingWeather, weather, weatherError, zipCode };
+};
 
-export default connect(mapStateToProps, actions)(SettingGeneral);
+export default connect(
+    mapStateToProps,
+    actions
+)(SettingGeneral);
