@@ -6,6 +6,7 @@
     "antd": "^3.8.0",
     "axios": "^0.18.0",
     "connected-react-router": "^4.3.0",
+    "formvalidation": "^0.6.2-dev",
     "history": "^4.7.2",
     "qs": "^6.5.2",
     "react": "^16.3.2",

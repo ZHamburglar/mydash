@@ -3,7 +3,7 @@ import {
   } from '../actions/types';
   
   const INITIAL_STATE = {
-    zipCode: ''
+    zipCode: '78757'
   }
   
   export default (state = INITIAL_STATE, action) => {

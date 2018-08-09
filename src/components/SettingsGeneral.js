@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+// import zipCode from 'formvalidation/validators/zipCode';
+
 import * as actions from '../actions';
 
 import { Form, Row, Col, Input, Button, Icon, Layout, Switch } from 'antd';
@@ -15,7 +17,8 @@ class SettingGeneral extends Component {
         expand: false,
         zipcode: this.props.zipCode,
         loading: false,
-        iconLoading: false
+        iconLoading: false,
+        zipError: false
     };
 
 
@@ -29,9 +32,18 @@ class SettingGeneral extends Component {
         console.log(this.state);
     };
 
+
+    // Need to add form validation for Zipcodes
     zipCodeChange = (e) => {
-        this.setState({ zipcode: e.target.value });
-        console.log("new state", this.state)
+        var isValid = false;
+        isValid = /^\d{4,5}([\-]?\d{4})?$/.test(this.state.zipcode);
+        if ( isValid === true ){
+            this.setState({ zipError: false, zipcode: e.target.value });
+            console.log("correct state", this.state)
+        } else {
+            this.setState({ zipError: true, zipcode: e.target.value });
+            console.log("wrong state", this.state)
+        }
     };
 
 
@@ -44,9 +56,16 @@ class SettingGeneral extends Component {
 
     // Button OnPress
     saveZipCode = () => {
-        console.log('state', this.state, this.props)
+        var isValid = false;
+        isValid = /^\d{4,5}([\-]?\d{4})?$/.test(this.state.zipcode);
+        console.log(isValid)
+        if ( isValid === true ){
+            this.setState({ zipError: false });
+            this.props.zipCodeChange(this.state.zipcode)
+        } else {
+            this.setState({ zipError: true });
+        }
 
-        this.props.zipCodeChange(this.state.zipcode)
     };
 
     enterIconLoading = () => {
@@ -82,13 +101,16 @@ class SettingGeneral extends Component {
                                         value={this.state.zipcode}
                                     />
                                 </FormItem>
-                                <Button
-                                    type="primary"
-                                    loading={this.state.loading}
-                                    onClick={() => this.props.zipCodeChange(this.state.zipcode)}
-                                >
-                                    Click me!
-                                </Button>
+                                <FormItem>
+                                    <Button
+                                        type="primary"
+                                        loading={this.state.loading}
+                                        onClick={() => this.saveZipCode()}
+                                    >
+                                        Click me!
+                                    </Button>
+                                </FormItem>
+                                
                             </Col>
 
                         </Row>
