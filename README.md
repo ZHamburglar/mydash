@@ -30,6 +30,8 @@ https://colorlib.com/wp/react-dashboard-templates/ CleanUI
 https://themeforest.net/item/clean-ui-react-admin-template/21938700?ref=cirvitis
 ANT DESIGN FEATURES
 
+### Weekly Updates
+
 Week of 8/10:
 
 -   [x] Added .eslintrc
