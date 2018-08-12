@@ -12,3 +12,7 @@ export const GET_WEATHER = 'get_weather';
 export const RETRIEVED_WEATHER = 'retrieve_weather';
 export const ERROR_WEATHER = 'error_weather';
 export const CHANGE_ZIPCODE = 'change_zipcode';
+
+export const GET_QUOTE = 'get_quote';
+export const FOUND_QUOTE = 'found_quote';
+export const ERROR_QUOTE = 'error_quote';

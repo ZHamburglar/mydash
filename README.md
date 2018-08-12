@@ -39,3 +39,5 @@ Week of 8/10:
 -   [x] Added .pritterrc
 
 -   [x] Weather API added
+
+Week of 8/17:
