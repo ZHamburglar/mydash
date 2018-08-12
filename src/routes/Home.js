@@ -15,7 +15,9 @@ class Home extends Component {
     // console.log('this is props: ', this.props.zipCode)
     this.props.getWeather(this.props.zipCode)
     this.props.getQuotes()
+  }
 
+  componentDidMount() {
   }
 
   renderWeather = () => {
@@ -36,13 +38,17 @@ class Home extends Component {
 
   }
 
+  getQuoteStyle = () => {
+    
+  }
+
   renderQuotes = () => {
     console.log("getting quotes: ", this.props.quote, this.props.quote.quote)
     if (this.props.quote.quote !== ''){
       return (
-        <div>
-          <div>{this.props.quote.quote} - {this.props.quote.author}</div>
-          <img src={this.props.quote.background}/>
+        <div style={imageStyle}>
+          <div style={quoteStyle}>{this.props.quote.quote} - {this.props.quote.author}</div>
+          <img ref="ImageRef" resizemode={'cover'} style={{ flex: 1}} src={this.props.quote.background}/>
         </div>
       )
     }
@@ -52,20 +58,38 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-          {this.renderWeather()}
+      <div style={homePageStyle}>
+          {/* {this.renderWeather()} */}
           {this.renderQuotes()}
-
-          <p>Home Page</p>
-          <p>Home Page</p>
-          <p>Home Page</p>
-          <p>Home Page</p>
-          <p>Home Page</p>
-          <p>Home Page</p>
-          <p>Home Page</p>
       </div>
     );
   }
+}
+
+const imageStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+}
+
+const quoteStyle = {
+  position : 'absolute',
+  bottom : 0,
+  top : 400,
+  left : 0,
+  right : 0,
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'white'
+}
+
+const homePageStyle = {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: 'relative'
 }
 
 const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer, quotesReducer }) => {
@@ -74,6 +98,8 @@ const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer, quo
   const { quote, loadingQuote, errorQuote } = quotesReducer
   return { loadingWeather , weather, weatherError, zipCode, quote, loadingQuote, errorQuote }
 }
+
+
 
 
 export default connect(mapStateToProps, actions)(Home);

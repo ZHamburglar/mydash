@@ -55,8 +55,8 @@ class App extends Component {
               <div className="logo" />
                 <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                   <Menu.Item key="1" onClick={() => this.props.changePageHome()}>
-                    <Icon type="pie-chart" />
-                    <span>Option 1</span>
+                    <Icon type="home" />
+                    <span>Home</span>
                   </Menu.Item>
                   <Menu.Item key="2">
                     <Icon type="desktop" />
@@ -82,7 +82,7 @@ class App extends Component {
                     <span>File</span>
                   </Menu.Item>
                   <Menu.Item key="10" onClick={() => this.props.changePageSettings()}>
-                    <Icon type="file" />
+                    <Icon type="setting" />
                     <span>Settings</span>
                   </Menu.Item>
                 </Menu>
@@ -94,11 +94,14 @@ class App extends Component {
                   <Breadcrumb.Item>User</Breadcrumb.Item>
                   <Breadcrumb.Item>Bill</Breadcrumb.Item>
                 </Breadcrumb> */}
-                <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                <div style={{background: '#fff', minHeight: 360 }}>
                   <main>
                     <Switch>
                       <Route exact path="/" render={this.renderHome} />
+                      <div style={{ padding: 24}}>
+
                       <Route exact path="/settings" render={this.renderSettings} />
+                      </div>
                     </Switch>
                   </main>
                 </div>
