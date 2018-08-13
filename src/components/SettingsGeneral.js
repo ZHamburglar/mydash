@@ -8,6 +8,9 @@ import * as actions from '../actions';
 
 import { Form, Row, Col, Input, Button, Icon, Layout, Switch } from 'antd';
 
+import { GoogleLogin } from 'react-google-login';
+
+
 const { Content } = Layout;
 
 const FormItem = Form.Item;
@@ -45,6 +48,10 @@ class SettingGeneral extends Component {
             console.log("wrong state", this.state)
         }
     };
+
+    responseGoogle = (response) => {
+        console.log(response);
+    }
 
 
 
@@ -110,6 +117,12 @@ class SettingGeneral extends Component {
                                         Click me!
                                     </Button>
                                 </FormItem>
+                                <GoogleLogin
+                                    clientId="307914709945-ipv0dhe7bsphhj179u152jo7c9d3infk.apps.googleusercontent.com"
+                                    buttonText="Login"
+                                    onSuccess={this.responseGoogle}
+                                    onFailure={this.responseGoogle}
+                                />
                                 
                             </Col>
 

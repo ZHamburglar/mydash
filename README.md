@@ -41,3 +41,5 @@ Week of 8/10:
 -   [x] Weather API added
 
 Week of 8/17:
+
+-   [ ] Added Google Login to project
