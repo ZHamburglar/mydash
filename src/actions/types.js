@@ -16,3 +16,9 @@ export const CHANGE_ZIPCODE = 'change_zipcode';
 export const GET_QUOTE = 'get_quote';
 export const FOUND_QUOTE = 'found_quote';
 export const ERROR_QUOTE = 'error_quote';
+
+export const GOOGLE_LOGIN = 'google_login';
+
+
+export const SB_ADDITEM = 'sb_additem';
+export const SB_REMOVEITEM = 'sb_removeitem';

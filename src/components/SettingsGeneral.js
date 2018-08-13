@@ -10,6 +10,7 @@ import { Form, Row, Col, Input, Button, Icon, Layout, Switch } from 'antd';
 
 import { GoogleLogin } from 'react-google-login';
 
+import { GoogleLogout } from 'react-google-login';
 
 const { Content } = Layout;
 
@@ -24,10 +25,10 @@ class SettingGeneral extends Component {
         zipError: false
     };
 
+    componentDidMount() {
+    }
 
-    // componentDidMount () {
-    //     this.setState({ zipcode: this.props.zipCode });
-    // }
+
 
     toggle = () => {
         const { expand } = this.state;
@@ -35,58 +36,57 @@ class SettingGeneral extends Component {
         console.log(this.state);
     };
 
-
     // Need to add form validation for Zipcodes
-    zipCodeChange = (e) => {
+    zipCodeChange = e => {
         var isValid = false;
         isValid = /^\d{4,5}([\-]?\d{4})?$/.test(this.state.zipcode);
-        if ( isValid === true ){
+        if (isValid === true) {
             this.setState({ zipError: false, zipcode: e.target.value });
-            console.log("correct state", this.state)
+            console.log('correct state', this.state);
         } else {
             this.setState({ zipError: true, zipcode: e.target.value });
-            console.log("wrong state", this.state)
+            console.log('wrong state', this.state);
         }
     };
 
-    responseGoogle = (response) => {
+    responseGoogle = response => {
         console.log(response);
-    }
-
-
+    };
 
     handleSearch = e => {
         e.preventDefault();
         // set the zipcode in the reducer
     };
 
-
     // Button OnPress
     saveZipCode = () => {
         var isValid = false;
         isValid = /^\d{4,5}([\-]?\d{4})?$/.test(this.state.zipcode);
-        console.log(isValid)
-        if ( isValid === true ){
+        console.log(isValid);
+        if (isValid === true) {
             this.setState({ zipError: false });
-            this.props.zipCodeChange(this.state.zipcode)
+            this.props.zipCodeChange(this.state.zipcode);
         } else {
             this.setState({ zipError: true });
         }
-
     };
 
     enterIconLoading = () => {
         this.setState({ iconLoading: true });
     };
 
+    googleLoginAuth = () => {
+        console.log("this function here")
+
+    }
+
     render() {
         return (
-            <div>
+            <div style={{ marginBottom: 24 }}>
                 <Content
                     style={{ background: '#f0f2f5', padding: 24, margin: 0 }}
                 >
                     Location
-                    <Switch onChange={this.onChange} />
                     <Form
                         className="ant-advanced-search-form"
                         onSubmit={this.handleSearch}
@@ -123,13 +123,19 @@ class SettingGeneral extends Component {
                                     onSuccess={this.responseGoogle}
                                     onFailure={this.responseGoogle}
                                 />
+                                <Button
+                                        type="primary"
+                                        loading={this.state.loading}
+                                        onClick={() => this.props.googleLoginAuth()}
+                                    >
+                                        Google Login!
+                                    </Button>
                                 
+                      
                             </Col>
-
                         </Row>
                         <Row>
                             <Col span={24} style={{ textAlign: 'right' }}>
-                               
                                 <a
                                     style={{ marginLeft: 8, fontSize: 12 }}
                                     onClick={this.toggle}

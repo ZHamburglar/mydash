@@ -1,344 +1,621 @@
-import React from 'react';
-import { render } from 'react-dom';
-
-import styled from 'styled-components';
-import SideNav, { Nav, NavIcon, NavText } from 'react-sidenav';
-import SvgIcon from 'react-icons-kit';
-import { ic_aspect_ratio } from 'react-icons-kit/md/ic_aspect_ratio';
-import { ic_business } from 'react-icons-kit/md/ic_business';
-import { ic_business_center } from 'react-icons-kit/md/ic_business_center';
-import { ic_format_list_bulleted } from 'react-icons-kit/md/ic_format_list_bulleted';
-import { ic_people } from 'react-icons-kit/md/ic_people';
-import { ic_shopping_cart } from 'react-icons-kit/md/ic_shopping_cart';
-
-const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
-
-const BaseContainer = props =>
-    <div
-        style={{
-            display: 'inline-block',
-            paddingTop: 16,
-            paddingBottom: 16,
-            fontFamily: 'Roboto',
-            width: 240,
-            ...props.style
-        }}
-    >
-        {props.children}
-    </div>;
-
-const Title = styled.div`
-    padding: 12px;
-`;
-
-const Separator = styled.div`
-    padding-right: 12px;
-`;
-const SeparatorTitleContainer = styled.div`
-    font-size: 14px;
-    color: #AAA;
-    margin: 10px 12px;
-    padding: 4px 12px 2px;
-`;
-const SeparatorTitle = props => {
-    return (
-        <SeparatorTitleContainer>
-            {props.children}
-            <hr style={{ border: 0, borderTop: '1px solid #E5E5E5' }} />
-        </SeparatorTitleContainer>
-    );
-};
-
-const BasicSideNav = () =>
-    <SideNav highlightBgColor="#00bcd4" defaultSelected="sales">
-        <Title> Basic SideNav </Title>
-        <Nav id="dashboard">
-            <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText> Dashboard </NavText>
-        </Nav>
-        <Nav id="sales">
-            <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
-        </Nav>
-        <Nav id="products">
-            <NavIcon><Icon20 icon={ic_business_center} /></NavIcon>
-            <NavText> Products </NavText>
-        </Nav>
-        <Nav id="customers">
-            <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-            <NavText> Customers </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-                <NavText> Search </NavText>
-            </Nav>
-            <Nav id="sales2">
-                <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-                <NavText> Promote </NavText>
-            </Nav>
-            <Nav id="products2">
-                <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-                <NavText> Social Media </NavText>
-            </Nav>
-        </Nav>
-        <Nav id="orders">
-            <NavIcon><Icon20 icon={ic_format_list_bulleted} /></NavIcon>
-            <NavText> Orders </NavText>
-        </Nav>
-    </SideNav>;
-
-const NavMain = {
-    dashboard: { title: 'Dashboard', icon: ic_aspect_ratio },
-    products: { title: 'Products', icon: ic_business_center },
-    orders: { title: 'Orders', icon: ic_format_list_bulleted }
-};
-
-const BasicSideNavLite = () =>
-    <SideNav
-        highlightBgColor="#eee"
-        defaultSelected="products"
-        highlightColor="#E91E63"
-    >
-        <SeparatorTitle><div>Main</div></SeparatorTitle>
-        {Object.keys(NavMain).map(key => {
-            //dynamically created the navs
-            return (
-                <Nav key={key} id={key}>
-                    <NavIcon><Icon20 icon={NavMain[key].icon} /></NavIcon>
-                    <NavText> {NavMain[key].title} </NavText>
-                </Nav>
-            );
-        })}
-        <SeparatorTitle>
-            <div> Customers and Sales</div>
-        </SeparatorTitle>
-        <Nav id="customers">
-            <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-            <NavText> Customers </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-                <NavText> Search </NavText>
-            </Nav>
-            <Nav id="sales2">
-                <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-                <NavText> Promote </NavText>
-            </Nav>
-            <Nav id="products2">
-                <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-                <NavText> Social Media </NavText>
-            </Nav>
-        </Nav>
-        <Nav id="sales">
-            <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
-        </Nav>
-    </SideNav>;
-
-const SideNavWithAlerts = () =>
-    <SideNav
-        hoverBgColor="#232a2f"
-        hoverColor="red"
-        highlightBgColor="#00acac"
-        defaultSelected="products"
-        highlightColor="#FFF"
-    >
-        <div />
-        <Nav id="dashboard">
-            <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText> Dashboard </NavText>
-        </Nav>
-
-        <Nav id="products">
-            <NavIcon><Icon20 icon={ic_business_center} /></NavIcon>
-            <NavText> Products </NavText>
-        </Nav>
-        <Nav id="orders">
-            <NavIcon><Icon20 icon={ic_format_list_bulleted} /></NavIcon>
-            <NavText>
-                {' '}<span style={{ paddingRight: 6 }}>Orders</span>{' '}
-                <span
-                    style={{
-                        textAlign: 'center',
-                        lineHeight: '16px',
-                        height: 16,
-                        width: 16,
-                        margin: '0 auto',
-                        borderRadius: '50%',
-                        fontSize: 9,
-                        display: 'inline-block',
-                        color: '#FFF',
-                        background: '#ff5b57'
-                    }}
-                >
-          10
-                </span>
-            </NavText>
-        </Nav>
-
-        <Nav id="customers">
-            <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-            <NavText> Customers </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-                <NavText> Search </NavText>
-            </Nav>
-            <Nav
-                id="sales2"
-                onNavClick={() => {
-                    console.log('Promote clicked!', arguments);
-                }}
-            >
-                <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-                <NavText> Promote </NavText>
-            </Nav>
-            <Nav id="products2">
-                <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-                <NavText> Social Media </NavText>
-            </Nav>
-        </Nav>
-        <Nav
-            id="sales"
-            onNavClick={() => {
-                console.log('Sales clicked!', arguments);
-            }}
-        >
-            <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
-        </Nav>
-        <Nav id="deliveries">
-            <NavIcon><Icon20 icon={ic_shopping_cart} /></NavIcon>
-            <NavText> Deliveries </NavText>
-        </Nav>
-    </SideNav>;
-
-const ControlledNav = () =>
-    <SideNav
-        hoverBgColor="#232a2f"
-        hoverColor="red"
-        highlightBgColor="#00acac"
-        selected="customers/sales2"
-        highlightColor="#FFF"
-    >
-        <div />
-        <Nav id="dashboard">
-            <NavIcon><Icon20 icon={ic_aspect_ratio} /></NavIcon>
-            <NavText> Dashboard </NavText>
-        </Nav>
-
-        <Nav id="products">
-            <NavIcon><Icon20 icon={ic_business_center} /></NavIcon>
-            <NavText> Products </NavText>
-        </Nav>
-        <Nav id="orders">
-            <NavIcon><Icon20 icon={ic_format_list_bulleted} /></NavIcon>
-            <NavText>
-                {' '}<span style={{ paddingRight: 6 }}>Orders</span>{' '}
-                <span
-                    style={{
-                        textAlign: 'center',
-                        lineHeight: '16px',
-                        height: 16,
-                        width: 16,
-                        margin: '0 auto',
-                        borderRadius: '50%',
-                        fontSize: 9,
-                        display: 'inline-block',
-                        color: '#FFF',
-                        background: '#ff5b57'
-                    }}
-                >
-          10
-                </span>
-            </NavText>
-        </Nav>
-
-        <Nav id="customers" expanded>
-            <NavIcon><Icon20 icon={ic_people} /></NavIcon>
-            <NavText> Customers </NavText>
-            <Nav id="dashboard2">
-                <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
-                <NavText> Search </NavText>
-            </Nav>
-            <Nav
-                id="sales2"
-                onNavClick={() => {
-                    console.log('Promote clicked!', arguments);
-                }}
-            >
-                <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
-                <NavText> Promote </NavText>
-            </Nav>
-            <Nav id="products2">
-                <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
-                <NavText> Social Media </NavText>
-            </Nav>
-        </Nav>
-        <Nav
-            id="sales"
-            onNavClick={() => {
-                console.log('Sales clicked!', arguments);
-            }}
-        >
-            <NavIcon><Icon20 icon={ic_business} /></NavIcon><NavText> Sales </NavText>
-        </Nav>
-        <Nav id="deliveries">
-            <NavIcon><Icon20 icon={ic_shopping_cart} /></NavIcon>
-            <NavText> Deliveries </NavText>
-        </Nav>
-    </SideNav>;
-
-class X extends React.Component {
-    render() {
+!(function(e, t) {
+    'object' == typeof exports && 'object' == typeof module
+        ? (module.exports = t(require('react')))
+        : 'function' == typeof define && define.amd
+            ? define(['react'], t)
+            : 'object' == typeof exports
+                ? (exports.GoogleLogin = t(require('react')))
+                : (e.GoogleLogin = t(e.react));
+})(this, function(e) {
+    return (function(e) {
+        function t(o) {
+            if (n[o]) return n[o].exports;
+            var r = (n[o] = { i: o, l: !1, exports: {} });
+            return e[o].call(r.exports, r, r.exports, t), (r.l = !0), r.exports;
+        }
+        var n = {};
         return (
-            <div style={{ display: 'flex' }}>
-                <BaseContainer style={{ background: '#2c3e50', color: '#FFF' }}>
-                    <BasicSideNav />
-                </BaseContainer>
-                <Separator />
-                <BaseContainer
-                    style={{
-                        background: '#FFF',
-                        color: '#444',
-                        boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'
-                    }}
-                >
-                    <BasicSideNavLite />
-                </BaseContainer>
-                <Separator />
-                <BaseContainer
-                    style={{
-                        fontSize: 12,
-                        background: '#2d353c',
-                        color: '#a8acb1',
-                        paddingTop: 0
-                    }}
-                >
-                    <div style={{ display: 'flex', padding: 16, background: '#1a2229' }}>
-                        <div style={{ width: 40, height: 40 }}>
-                            <img
-                                src="https://e27.co/img/profiles/15483/profile_pic.png"
-                                style={{ borderRadius: '30px', width: 40, height: 40 }}
-                            />
-                        </div>
-                        <div style={{ paddingLeft: 6, paddingTop: 6 }}>
-                            <div style={{ fontSize: 12, color: '#E5E5E5' }}>
-                                {' '}Warren Mira{' '}
-                            </div>
-                            <div style={{ fontSize: 11 }}> Ninja Developer </div>
-                        </div>
-                    </div>
-                    <SideNavWithAlerts />
-                </BaseContainer>
-                <Separator />
-                <BaseContainer
-                    style={{
-                        background: '#FFF',
-                        color: '#444',
-                        boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'
-                    }}
-                >
-                    <ControlledNav />
-                </BaseContainer>
-                <Separator />
-            </div>
+            (t.m = e),
+            (t.c = n),
+            (t.d = function(e, n, o) {
+                t.o(e, n) ||
+                    Object.defineProperty(e, n, {
+                        configurable: !1,
+                        enumerable: !0,
+                        get: o
+                    });
+            }),
+            (t.n = function(e) {
+                var n =
+                    e && e.__esModule
+                        ? function() {
+                              return e.default;
+                          }
+                        : function() {
+                              return e;
+                          };
+                return t.d(n, 'a', n), n;
+            }),
+            (t.o = function(e, t) {
+                return Object.prototype.hasOwnProperty.call(e, t);
+            }),
+            (t.p = ''),
+            t((t.s = 3))
         );
-    }
-}
-
-render(<X />, document.getElementById('app'));
+    })([
+        function(e, t, n) {
+            'use strict';
+            function o(e, t) {
+                if (!(e instanceof t))
+                    throw new TypeError('Cannot call a class as a function');
+            }
+            function r(e, t) {
+                if (!e)
+                    throw new ReferenceError(
+                        "this hasn't been initialised - super() hasn't been called"
+                    );
+                return !t || ('object' != typeof t && 'function' != typeof t)
+                    ? e
+                    : t;
+            }
+            function i(e, t) {
+                if ('function' != typeof t && null !== t)
+                    throw new TypeError(
+                        'Super expression must either be null or a function, not ' +
+                            typeof t
+                    );
+                (e.prototype = Object.create(t && t.prototype, {
+                    constructor: {
+                        value: e,
+                        enumerable: !1,
+                        writable: !0,
+                        configurable: !0
+                    }
+                })),
+                    t &&
+                        (Object.setPrototypeOf
+                            ? Object.setPrototypeOf(e, t)
+                            : (e.__proto__ = t));
+            }
+            var a = n(1),
+                s = n.n(a),
+                u = n(2),
+                c = (n.n(u),
+                (function() {
+                    function e(e, t) {
+                        for (var n = 0; n < t.length; n++) {
+                            var o = t[n];
+                            (o.enumerable = o.enumerable || !1),
+                                (o.configurable = !0),
+                                'value' in o && (o.writable = !0),
+                                Object.defineProperty(e, o.key, o);
+                        }
+                    }
+                    return function(t, n, o) {
+                        return n && e(t.prototype, n), o && e(t, o), t;
+                    };
+                })()),
+                l = (function(e) {
+                    function t(e) {
+                        o(this, t);
+                        var n = r(
+                            this,
+                            (t.__proto__ || Object.getPrototypeOf(t)).call(
+                                this,
+                                e
+                            )
+                        );
+                        return (
+                            (n.signIn = n.signIn.bind(n)),
+                            (n.enableButton = n.enableButton.bind(n)),
+                            (n.state = { disabled: !0 }),
+                            n
+                        );
+                    }
+                    return (
+                        i(t, e),
+                        c(t, [
+                            {
+                                key: 'componentDidMount',
+                                value: function() {
+                                    var e = this,
+                                        t = this.props,
+                                        n = t.clientId,
+                                        o = t.cookiePolicy,
+                                        r = t.loginHint,
+                                        i = t.hostedDomain,
+                                        a = t.autoLoad,
+                                        s = t.isSignedIn,
+                                        u = t.fetchBasicProfile,
+                                        c = t.redirectUri,
+                                        l = t.discoveryDocs,
+                                        p = t.onFailure,
+                                        f = t.uxMode,
+                                        d = t.scope,
+                                        g = t.accessType,
+                                        h = t.responseType,
+                                        b = t.jsSrc;
+                                    !(function(e, t, n, o) {
+                                        var r = e.getElementsByTagName(t)[0],
+                                            i = r,
+                                            a = r;
+                                        (a = e.createElement(t)),
+                                            (a.id = 'google-login'),
+                                            (a.src = b),
+                                            i && i.parentNode
+                                                ? i.parentNode.insertBefore(
+                                                      a,
+                                                      i
+                                                  )
+                                                : e.head.appendChild(a),
+                                            (a.onload = o);
+                                    })(document, 'script', 0, function() {
+                                        var t = {
+                                            client_id: n,
+                                            cookie_policy: o,
+                                            login_hint: r,
+                                            hosted_domain: i,
+                                            fetch_basic_profile: u,
+                                            discoveryDocs: l,
+                                            ux_mode: f,
+                                            redirect_uri: c,
+                                            scope: d,
+                                            access_type: g
+                                        };
+                                        'code' === h &&
+                                            (t.access_type = 'offline'),
+                                            window.gapi.load(
+                                                'auth2',
+                                                function() {
+                                                    e.enableButton(),
+                                                        window.gapi.auth2.getAuthInstance() ||
+                                                            window.gapi.auth2
+                                                                .init(t)
+                                                                .then(
+                                                                    function(
+                                                                        t
+                                                                    ) {
+                                                                        s &&
+                                                                            t.isSignedIn.get() &&
+                                                                            e.handleSigninSuccess(
+                                                                                t.currentUser.get()
+                                                                            );
+                                                                    },
+                                                                    function(
+                                                                        e
+                                                                    ) {
+                                                                        return p(
+                                                                            e
+                                                                        );
+                                                                    }
+                                                                ),
+                                                        a && e.signIn();
+                                                }
+                                            );
+                                    });
+                                }
+                            },
+                            {
+                                key: 'componentWillUnmount',
+                                value: function() {
+                                    this.enableButton = function() {};
+                                }
+                            },
+                            {
+                                key: 'enableButton',
+                                value: function() {
+                                    this.setState({ disabled: !1 });
+                                }
+                            },
+                            {
+                                key: 'signIn',
+                                value: function(e) {
+                                    var t = this;
+                                    if (
+                                        (e && e.preventDefault(),
+                                        !this.state.disabled)
+                                    ) {
+                                        var n = window.gapi.auth2.getAuthInstance(),
+                                            o = this.props,
+                                            r = o.onSuccess,
+                                            i = o.onRequest,
+                                            a = o.onFailure,
+                                            s = o.prompt,
+                                            u = o.responseType,
+                                            c = { prompt: s };
+                                        i(),
+                                            'code' === u
+                                                ? n.grantOfflineAccess(c).then(
+                                                      function(e) {
+                                                          return r(e);
+                                                      },
+                                                      function(e) {
+                                                          return a(e);
+                                                      }
+                                                  )
+                                                : n.signIn(c).then(
+                                                      function(e) {
+                                                          return t.handleSigninSuccess(
+                                                              e
+                                                          );
+                                                      },
+                                                      function(e) {
+                                                          return a(e);
+                                                      }
+                                                  );
+                                    }
+                                }
+                            },
+                            {
+                                key: 'handleSigninSuccess',
+                                value: function(e) {
+                                    var t = e.getBasicProfile(),
+                                        n = e.getAuthResponse();
+                                    (e.googleId = t.getId()),
+                                        (e.tokenObj = n),
+                                        (e.tokenId = n.id_token),
+                                        (e.accessToken = n.access_token),
+                                        (e.profileObj = {
+                                            googleId: t.getId(),
+                                            imageUrl: t.getImageUrl(),
+                                            email: t.getEmail(),
+                                            name: t.getName(),
+                                            givenName: t.getGivenName(),
+                                            familyName: t.getFamilyName()
+                                        }),
+                                        this.props.onSuccess(e);
+                                }
+                            },
+                            {
+                                key: 'render',
+                                value: function() {
+                                    var e = this.props,
+                                        t = e.tag,
+                                        n = e.type,
+                                        o = e.style,
+                                        r = e.className,
+                                        i = e.disabledStyle,
+                                        a = e.buttonText,
+                                        u = e.children,
+                                        c = e.render,
+                                        l =
+                                            this.state.disabled ||
+                                            this.props.disabled;
+                                    if (c) return c({ onClick: this.signIn });
+                                    var p = {
+                                            display: 'inline-block',
+                                            background: '#d14836',
+                                            color: '#fff',
+                                            width: 190,
+                                            paddingTop: 10,
+                                            paddingBottom: 10,
+                                            borderRadius: 2,
+                                            border: '1px solid transparent',
+                                            fontSize: 16,
+                                            fontWeight: 'bold',
+                                            fontFamily: 'Roboto'
+                                        },
+                                        f = (function() {
+                                            return o || (r && !o ? {} : p);
+                                        })(),
+                                        d = (function() {
+                                            return l
+                                                ? Object.assign({}, f, i)
+                                                : f;
+                                        })();
+                                    return s.a.createElement(
+                                        t,
+                                        {
+                                            onClick: this.signIn,
+                                            style: d,
+                                            type: n,
+                                            disabled: l,
+                                            className: r
+                                        },
+                                        u || a
+                                    );
+                                }
+                            }
+                        ]),
+                        t
+                    );
+                })(a.Component);
+            (l.defaultProps = {
+                type: 'button',
+                tag: 'button',
+                buttonText: 'Login with Google',
+                scope: 'profile email',
+                accessType: 'online',
+                prompt: '',
+                cookiePolicy: 'single_host_origin',
+                fetchBasicProfile: !0,
+                isSignedIn: !1,
+                uxMode: 'popup',
+                disabledStyle: { opacity: 0.6 },
+                onRequest: function() {},
+                jsSrc: 'https://apis.google.com/js/client:platform.js'
+            }),
+                (t.a = l);
+        },
+        function(t, n) {
+            t.exports = e;
+        },
+        function(e, t, n) {
+            'function' == typeof Symbol && Symbol.iterator,
+                (e.exports = n(5)());
+        },
+        function(e, t, n) {
+            e.exports = n(4);
+        },
+        function(e, t, n) {
+            'use strict';
+            Object.defineProperty(t, '__esModule', { value: !0 });
+            var o = n(0);
+            n.d(t, 'default', function() {
+                return o.a;
+            }),
+                n.d(t, 'GoogleLogin', function() {
+                    return o.a;
+                });
+            var r = n(9);
+            n.d(t, 'GoogleLogout', function() {
+                return r.a;
+            });
+        },
+        function(e, t, n) {
+            'use strict';
+            var o = n(6),
+                r = n(7),
+                i = n(8);
+            e.exports = function() {
+                function e(e, t, n, o, a, s) {
+                    s !== i &&
+                        r(
+                            !1,
+                            'Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types'
+                        );
+                }
+                function t() {
+                    return e;
+                }
+                e.isRequired = e;
+                var n = {
+                    array: e,
+                    bool: e,
+                    func: e,
+                    number: e,
+                    object: e,
+                    string: e,
+                    symbol: e,
+                    any: e,
+                    arrayOf: t,
+                    element: e,
+                    instanceOf: t,
+                    node: e,
+                    objectOf: t,
+                    oneOf: t,
+                    oneOfType: t,
+                    shape: t,
+                    exact: t
+                };
+                return (n.checkPropTypes = o), (n.PropTypes = n), n;
+            };
+        },
+        function(e, t, n) {
+            'use strict';
+            function o(e) {
+                return function() {
+                    return e;
+                };
+            }
+            var r = function() {};
+            (r.thatReturns = o),
+                (r.thatReturnsFalse = o(!1)),
+                (r.thatReturnsTrue = o(!0)),
+                (r.thatReturnsNull = o(null)),
+                (r.thatReturnsThis = function() {
+                    return this;
+                }),
+                (r.thatReturnsArgument = function(e) {
+                    return e;
+                }),
+                (e.exports = r);
+        },
+        function(e, t, n) {
+            'use strict';
+            function o(e, t, n, o, i, a, s, u) {
+                if ((r(t), !e)) {
+                    var c;
+                    if (void 0 === t)
+                        c = new Error(
+                            'Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.'
+                        );
+                    else {
+                        var l = [n, o, i, a, s, u],
+                            p = 0;
+                        (c = new Error(
+                            t.replace(/%s/g, function() {
+                                return l[p++];
+                            })
+                        )),
+                            (c.name = 'Invariant Violation');
+                    }
+                    throw ((c.framesToPop = 1), c);
+                }
+            }
+            var r = function(e) {};
+            e.exports = o;
+        },
+        function(e, t, n) {
+            'use strict';
+            e.exports = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+        },
+        function(e, t, n) {
+            'use strict';
+            function o(e, t) {
+                if (!(e instanceof t))
+                    throw new TypeError('Cannot call a class as a function');
+            }
+            function r(e, t) {
+                if (!e)
+                    throw new ReferenceError(
+                        "this hasn't been initialised - super() hasn't been called"
+                    );
+                return !t || ('object' != typeof t && 'function' != typeof t)
+                    ? e
+                    : t;
+            }
+            function i(e, t) {
+                if ('function' != typeof t && null !== t)
+                    throw new TypeError(
+                        'Super expression must either be null or a function, not ' +
+                            typeof t
+                    );
+                (e.prototype = Object.create(t && t.prototype, {
+                    constructor: {
+                        value: e,
+                        enumerable: !1,
+                        writable: !0,
+                        configurable: !0
+                    }
+                })),
+                    t &&
+                        (Object.setPrototypeOf
+                            ? Object.setPrototypeOf(e, t)
+                            : (e.__proto__ = t));
+            }
+            var a = n(1),
+                s = n.n(a),
+                u = n(2),
+                c = (n.n(u),
+                (function() {
+                    function e(e, t) {
+                        for (var n = 0; n < t.length; n++) {
+                            var o = t[n];
+                            (o.enumerable = o.enumerable || !1),
+                                (o.configurable = !0),
+                                'value' in o && (o.writable = !0),
+                                Object.defineProperty(e, o.key, o);
+                        }
+                    }
+                    return function(t, n, o) {
+                        return n && e(t.prototype, n), o && e(t, o), t;
+                    };
+                })()),
+                l = (function(e) {
+                    function t(e) {
+                        o(this, t);
+                        var n = r(
+                            this,
+                            (t.__proto__ || Object.getPrototypeOf(t)).call(
+                                this,
+                                e
+                            )
+                        );
+                        return (
+                            (n.state = { disabled: !0 }),
+                            (n.signOut = n.signOut.bind(n)),
+                            n
+                        );
+                    }
+                    return (
+                        i(t, e),
+                        c(t, [
+                            {
+                                key: 'componentDidMount',
+                                value: function() {
+                                    var e = this,
+                                        t = this.props.jsSrc;
+                                    !(function(e, n, o, r) {
+                                        var i = e.getElementsByTagName(n)[0],
+                                            a = i,
+                                            s = i;
+                                        (s = e.createElement(n)),
+                                            (s.id = 'google-login'),
+                                            (s.src = t),
+                                            a && a.parentNode
+                                                ? a.parentNode.insertBefore(
+                                                      s,
+                                                      a
+                                                  )
+                                                : e.head.appendChild(s),
+                                            (s.onload = r);
+                                    })(document, 'script', 0, function() {
+                                        window.gapi.load('auth2', function() {
+                                            e.setState({ disabled: !1 });
+                                        });
+                                    });
+                                }
+                            },
+                            {
+                                key: 'signOut',
+                                value: function() {
+                                    var e = window.gapi.auth2.getAuthInstance();
+                                    null != e &&
+                                        e
+                                            .signOut()
+                                            .then(this.props.onLogoutSuccess);
+                                }
+                            },
+                            {
+                                key: 'render',
+                                value: function() {
+                                    var e = this.props,
+                                        t = e.tag,
+                                        n = e.style,
+                                        o = e.className,
+                                        r = e.disabledStyle,
+                                        i = e.buttonText,
+                                        a = e.children,
+                                        u = e.render;
+                                    if (u) return u({ onClick: this.signOut });
+                                    var c =
+                                            this.state.disabled ||
+                                            this.props.disabled,
+                                        l = {
+                                            display: 'inline-block',
+                                            background: '#d14836',
+                                            color: '#fff',
+                                            width: 190,
+                                            paddingTop: 10,
+                                            paddingBottom: 10,
+                                            borderRadius: 2,
+                                            border: '1px solid transparent',
+                                            fontSize: 16,
+                                            fontWeight: 'bold',
+                                            fontFamily: 'Roboto'
+                                        },
+                                        p = (function() {
+                                            return n || (o && !n ? {} : l);
+                                        })(),
+                                        f = (function() {
+                                            return c
+                                                ? Object.assign({}, p, r)
+                                                : p;
+                                        })();
+                                    return s.a.createElement(
+                                        t,
+                                        {
+                                            onClick: this.signOut,
+                                            style: f,
+                                            disabled: c,
+                                            className: o
+                                        },
+                                        a || i
+                                    );
+                                }
+                            }
+                        ]),
+                        t
+                    );
+                })(a.Component);
+            (l.defaultProps = {
+                tag: 'button',
+                buttonText: 'Logout',
+                disabledStyle: { opacity: 0.6 },
+                jsSrc: 'https://apis.google.com/js/client:platform.js'
+            }),
+                (t.a = l);
+        }
+    ]);
+});

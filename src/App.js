@@ -13,6 +13,7 @@ import { Layout, Menu, Icon } from 'antd';
 
 import Home from './routes/Home';
 import Settings from './routes/Settings';
+import Calendar from './routes/Calendar';
 
 // import NavigationBar from './components/NavigationBar';
 
@@ -40,7 +41,9 @@ class App extends Component {
 
   renderHome = () => <Home />
 
-  renderSettings = () => <Settings />    
+  renderSettings = () => <Settings />  
+  
+  renderCalendar = () => <Calendar />
 
   
   render() {
@@ -90,18 +93,16 @@ class App extends Component {
             <Layout>
               <MainHeader />
               <Content style={{ margin: '0 16px' }}>
-                {/* <Breadcrumb style={{ margin: '16px 0' }}>
-                  <Breadcrumb.Item>User</Breadcrumb.Item>
-                  <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                </Breadcrumb> */}
+
                 <div style={{background: '#fff', minHeight: 360 }}>
                   <main>
                     <Switch>
                       <Route exact path="/" render={this.renderHome} />
-                      <div style={{ padding: 24}}>
 
                       <Route exact path="/settings" render={this.renderSettings} />
-                      </div>
+                      <Route exact path="/calendar" render={this.renderCalendar} />
+
+
                     </Switch>
                   </main>
                 </div>

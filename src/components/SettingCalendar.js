@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
+import * as actions from '../actions'
+
+
 import { Form, Row, Col, Input, Button, Icon, Layout, Switch } from 'antd';
 
 const { Content } = Layout;
 
 const FormItem = Form.Item;
 
-class SettingComponent extends Component {
+class SettingCalendar extends Component {
   state = {
-    expand: false
+    expand: false,
+    switchChecked: false  
   };
 
   componentWillUnmount() {}
 
-  onChange = () => {
-    console.log('this was changed');
+  onChange = (checked) => {
+    console.log('this was changed', this.state);
+    this.setState(checked, () => console.log("Changed", "==> " + this.state));
+    
+
   };
 
   toggle = () => {
@@ -35,7 +44,7 @@ class SettingComponent extends Component {
       <div>
         <Content style={{ background: '#f0f2f5', padding: 24, margin: 0 }}>
           Google Calendar
-          <Switch onChange={this.onChange} />
+          <Switch checked={this.state.switchChecked} onChange={(checked) => this.onChange({ switchChecked: checked})} />
           <Form
             className="ant-advanced-search-form"
             onSubmit={this.handleSearch}
@@ -83,4 +92,4 @@ class SettingComponent extends Component {
   }
 }
 
-export default SettingComponent;
+export default connect(null, actions)(SettingCalendar);

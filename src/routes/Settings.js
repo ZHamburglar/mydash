@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Switch from "react-switch";
 
-import SettingComponent from '../components/SettingComponent';
 import SettingGeneral from '../components/SettingsGeneral';
+import SettingCalendar from '../components/SettingCalendar';
 
 
 
@@ -19,10 +19,10 @@ class Settings extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ padding: 24}}>
           <p>Google Login</p>
           <SettingGeneral />
-          <SettingComponent />
+          <SettingCalendar />
           <p>Settings Page</p>
           <p>Settings Page</p>
           <p>Settings Page</p>
