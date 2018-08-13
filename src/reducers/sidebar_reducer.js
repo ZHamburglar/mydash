@@ -4,17 +4,28 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    sideItems: ''
+    sideItems: []
   }
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case SB_ADDITEM:
-            return { ...state
+            var i = state.sideItems.length
+            while (i--) {
+                if(state.sideItems[i] === action.payload) {
+                    return {
+                        ...state
+                    }
+                }
+            }
+            return { ...state,
+                sideItems: [ ...state.sideItems, action.payload]
             }
         case SB_REMOVEITEM:
-            console.log('action payload: ')
-            return { ...state
+            const newSideItems = state.sideItems.filter(item => item !== action.payload)
+            console.log('new Items: ', newSideItems)
+            return { ...state,
+                sideItems: newSideItems
             }
 
         default:

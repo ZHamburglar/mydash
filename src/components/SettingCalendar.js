@@ -14,16 +14,37 @@ const FormItem = Form.Item;
 class SettingCalendar extends Component {
   state = {
     expand: false,
-    switchChecked: false  
+    switchChecked: false
   };
+
+
+  componentWillMount = () => {
+    var i = this.props.sideItems.length
+    while (i--) {
+        if(this.props.sideItems[i] === 'Calendar') {
+          return this.setState({ switchChecked: true})
+      }
+    }
+    return this.setState({ switchChecked: false})
+
+
+  }
 
   componentWillUnmount() {}
 
   onChange = (checked) => {
     console.log('this was changed', this.state);
-    this.setState(checked, () => console.log("Changed", "==> " + this.state));
-    
+    this.setState(checked, () => {
+      if (this.state.switchChecked){
+        console.log("true!")
+        {this.props.addSideBarCalendar('Calendar')}
+      } else {
+        console.log("false")
+        {this.props.removeSideBarCalendar('Calendar')}
 
+      }
+    }
+  )
   };
 
   toggle = () => {
@@ -92,4 +113,10 @@ class SettingCalendar extends Component {
   }
 }
 
-export default connect(null, actions)(SettingCalendar);
+const mapStateToProps = ({ sideBarReducer }) => {
+
+  const { sideItems } = sideBarReducer
+  return { sideItems }
+}
+
+export default connect(mapStateToProps, actions)(SettingCalendar);

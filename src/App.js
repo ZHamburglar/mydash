@@ -45,6 +45,15 @@ class App extends Component {
   
   renderCalendar = () => <Calendar />
 
+  renderSideBarItems = (items) => (items.map(item => (
+          <Menu.Item key="44">
+            <Icon type="file" />
+            <span>{item}</span>
+          </Menu.Item>
+  )))
+ 
+  
+
   
   render() {
     return (
@@ -84,6 +93,7 @@ class App extends Component {
                     <Icon type="file" />
                     <span>File</span>
                   </Menu.Item>
+                  {this.renderSideBarItems(this.props.sideItems)}
                   <Menu.Item key="10" onClick={() => this.props.changePageSettings()}>
                     <Icon type="setting" />
                     <span>Settings</span>
@@ -99,8 +109,8 @@ class App extends Component {
                     <Switch>
                       <Route exact path="/" render={this.renderHome} />
 
-                      <Route exact path="/settings" render={this.renderSettings} />
-                      <Route exact path="/calendar" render={this.renderCalendar} />
+                      <Route exact path="/Settings" render={this.renderSettings} />
+                      <Route exact path="/Calendar" render={this.renderCalendar} />
 
 
                     </Switch>
@@ -117,9 +127,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ sidebarOCReducer }) => {
+const mapStateToProps = ({ sidebarOCReducer, sideBarReducer }) => {
   const { sidebarOpen, docked } = sidebarOCReducer
-  return { sidebarOpen, docked }
+  const { sideItems } = sideBarReducer
+  return { sideItems }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({

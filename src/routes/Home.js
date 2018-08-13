@@ -18,6 +18,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    console.log('props', this.props)
   }
 
   renderWeather = () => {
@@ -43,7 +44,7 @@ class Home extends Component {
   }
 
   renderQuotes = () => {
-    console.log("getting quotes: ", this.props.quote, this.props.quote.quote)
+    // console.log("getting quotes: ", this.props.quote, this.props.quote.quote)
     if (this.props.quote.quote !== ''){
       return (
         <div style={imageStyle}>
@@ -92,11 +93,12 @@ const homePageStyle = {
   position: 'relative'
 }
 
-const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer, quotesReducer }) => {
+const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer, quotesReducer, sideBarReducer }) => {
   const { loadingWeather , weather, weatherError } = generalSettingsReducer
   const { zipCode } = permanentSettingsReducer
   const { quote, loadingQuote, errorQuote } = quotesReducer
-  return { loadingWeather , weather, weatherError, zipCode, quote, loadingQuote, errorQuote }
+  const { sideItems } = sideBarReducer
+  return { loadingWeather , weather, weatherError, zipCode, quote, loadingQuote, errorQuote, sideItems }
 }
 
 

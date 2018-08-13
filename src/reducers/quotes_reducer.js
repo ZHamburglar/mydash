@@ -20,7 +20,7 @@ export default (state = INITIAL_STATE, action) => {
                 
             }
         case FOUND_QUOTE:
-            console.log('action payload: ', action.payload.quote)
+            // console.log('action payload: ', action.payload.quote)
             return { ...state,
                 loadingQuote: false,
                 errorQuote: '',
