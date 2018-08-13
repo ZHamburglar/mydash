@@ -46,7 +46,7 @@ class App extends Component {
   renderCalendar = () => <Calendar />
 
   renderSideBarItems = (items) => (items.map(item => (
-          <Menu.Item key="44">
+          <Menu.Item key="44" onClick={() => this.props.changePageCalendar()}>
             <Icon type="file" />
             <span>{item}</span>
           </Menu.Item>
@@ -135,7 +135,8 @@ const mapStateToProps = ({ sidebarOCReducer, sideBarReducer }) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   changePageHome: () => push('/'),
-  changePageSettings: () => push('/settings')
+  changePageSettings: () => push('/settings'),
+  changePageCalendar: () => push('/calendar')
 }, dispatch)
 
 
