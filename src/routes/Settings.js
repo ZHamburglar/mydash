@@ -24,10 +24,7 @@ class Settings extends Component {
           <SettingGeneral />
           <SettingCalendar />
           <p>Settings Page</p>
-          <p>Settings Page</p>
-          <p>Settings Page</p>
-          <p>Settings Page</p>
-          <p>Settings Page</p>
+
           <label htmlFor="normal-switch">
             <Switch
               onChange={this.handleChange}

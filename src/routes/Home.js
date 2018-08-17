@@ -105,3 +105,4 @@ const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer, quo
 
 
 export default connect(mapStateToProps, actions)(Home);
+

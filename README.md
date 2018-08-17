@@ -43,3 +43,5 @@ Week of 8/10:
 Week of 8/17:
 
 -   [ ] Added Google Login to project
+
+-   [x] Base functionality of slider on Settings page adding to Sidebar
