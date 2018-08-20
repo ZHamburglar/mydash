@@ -45,3 +45,6 @@ Week of 8/17:
 -   [ ] Added Google Login to project
 
 -   [x] Base functionality of slider on Settings page adding to Sidebar
+
+-   [ ] Render components from array.
+        (https://stackoverflow.com/questions/42584940/render-react-components-from-array)
