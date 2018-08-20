@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import * as actions from '../actions'
+import * as actions from '../../actions'
 
 
 import { Form, Row, Col, Input, Button, Icon, Layout, Switch } from 'antd';
+
+import SBCalendar from '../SidebarItems/SBCalendar';
 
 const { Content } = Layout;
 
@@ -37,10 +39,16 @@ class SettingCalendar extends Component {
     this.setState(checked, () => {
       if (this.state.switchChecked){
         console.log("true!")
-        {this.props.addSideBarCalendar('Calendar')}
+        {this.props.addSideBarCalendar({
+          src: <SBCalendar />,
+          id: 102
+        })}
       } else {
         console.log("false")
-        {this.props.removeSideBarCalendar('Calendar')}
+        {this.props.removeSideBarCalendar({
+          src: <SBCalendar />,
+          id: 102
+        })}
 
       }
     }

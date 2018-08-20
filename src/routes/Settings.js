@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Switch from "react-switch";
 
-import SettingGeneral from '../components/SettingsGeneral';
-import SettingCalendar from '../components/SettingCalendar';
+import SettingGeneral from '../components/SettingsForms/SettingsGeneral';
+import SettingCalendar from '../components/SettingsForms/SettingCalendar';
+import SettingYNAB from '../components/SettingsForms/SettingsYNAB';
 
 
 
@@ -23,6 +24,7 @@ class Settings extends Component {
           <p>Google Login</p>
           <SettingGeneral />
           <SettingCalendar />
+          <SettingYNAB />
           <p>Settings Page</p>
 
           <label htmlFor="normal-switch">

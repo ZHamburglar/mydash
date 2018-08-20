@@ -15,6 +15,10 @@ import Home from './routes/Home';
 import Settings from './routes/Settings';
 import Calendar from './routes/Calendar';
 
+//Sidebar Components
+import SBYNAB from './components/SidebarItems/SBYNAB';
+import SBCalendar from './components/SidebarItems/SBCalendar';
+
 // import NavigationBar from './components/NavigationBar';
 
 import MainHeader from './components/MainHeader';
@@ -45,12 +49,19 @@ class App extends Component {
   
   renderCalendar = () => <Calendar />
 
-  renderSideBarItems = (items) => (items.map(item => (
-          <Menu.Item key="44" onClick={() => this.props.changePageCalendar()}>
-            <Icon type="file" />
-            <span>{item}</span>
-          </Menu.Item>
-  )))
+  // renderSideBarItems = (items) => console.log('hello', items)
+  // (items.map(item => (
+  //         <Menu.Item key="44" onClick={() => this.props.changePageCalendar()}>
+  //           <Icon type="file" />
+  //           <span>{item}</span>
+  //         </Menu.Item>
+  // )))
+
+  renderSideBarItems = (items) => (items.map((item, index) => (
+    <Menu.Item key={item.id}>
+      Hello
+    </Menu.Item>
+)))
  
   
 

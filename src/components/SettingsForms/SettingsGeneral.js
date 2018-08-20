@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 // import zipCode from 'formvalidation/validators/zipCode';
 
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 import { Form, Row, Col, Input, Button, Icon, Layout, Switch } from 'antd';
 
