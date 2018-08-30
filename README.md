@@ -48,3 +48,8 @@ Week of 8/17:
 
 -   [ ] Render components from array.
         (https://stackoverflow.com/questions/42584940/render-react-components-from-array)
+
+Week of 8/24:
+
+- [ ] Changing to Webpack instead of standard
+
