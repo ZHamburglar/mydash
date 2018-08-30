@@ -51,5 +51,5 @@ Week of 8/17:
 
 Week of 8/24:
 
-- [ ] Changing to Webpack instead of standard
+- [x] Changing to Webpack instead of standard
 
