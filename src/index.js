@@ -6,17 +6,23 @@ import { store, history } from './store';
 
 import Root from './Root';
 
-ReactDOM.render(
-  <Root store={store} history={history} />, 
-  document.getElementById('root')
-);
+import 'babel-polyfill';
 
-// const title = 'My Dash';
 
 // ReactDOM.render(
-//   <div>{title}</div>,
+//   <Root store={store} history={history} />, 
 //   document.getElementById('root')
 // );
+
+const title = 'My Dash is working';
+
+ReactDOM.render(
+
+  <Root store={store} history={history} />
+
+  ,
+  document.getElementById('root')
+);
 
 
 module.hot.accept();
