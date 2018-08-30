@@ -83,7 +83,7 @@ class App extends Component {
                   </Menu.Item>
                   <Menu.Item key="2">
                     <Icon type="desktop" />
-                    <span>Option 2</span>
+                    <span>Option 22</span>
                   </Menu.Item>
                   <SubMenu
                     key="sub1"

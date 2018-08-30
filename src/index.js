@@ -2,27 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './App.css';
-import { store, history } from './store';
 
+import { store, history } from './store';
 import Root from './Root';
 
 import 'babel-polyfill';
 
-
-// ReactDOM.render(
-//   <Root store={store} history={history} />, 
-//   document.getElementById('root')
-// );
-
-const title = 'My Dash is working';
-
 ReactDOM.render(
-
-  <Root store={store} history={history} />
-
-  ,
+  <Root store={store} history={history} />,
   document.getElementById('root')
 );
-
 
 module.hot.accept();
