@@ -11,7 +11,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// const title = 'My Minimal React Webpack Babel Setup';
+// const title = 'My Dash';
 
 // ReactDOM.render(
 //   <div>{title}</div>,
