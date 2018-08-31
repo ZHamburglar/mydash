@@ -32,7 +32,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import createRouter from './create-router'
 import configureStore from './store'
-import './style.css'
+// import './style.css'
 import './App.css'
 
 

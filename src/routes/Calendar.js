@@ -4,8 +4,9 @@ import { routeNodeSelector } from 'redux-router5'
 
 
 
-function Calendar(props) {
+class Calendar extends Component {
 
+  render() {
     return (
       <div style={{ padding: 24}}>
 
@@ -18,7 +19,8 @@ function Calendar(props) {
 
       </div>
     );
-  
+  }
 }
 
-export default connect(routeNodeSelector('calendar'))(Calendar)
+
+export default Calendar;

@@ -58,7 +58,7 @@ import MainHeader from './components/MainHeader';
 
 
 import Nav from './routes/components/Nav'
-import Main from './routes/components/Main'
+import Main from './routes/Main'
 const { Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -78,7 +78,7 @@ class App extends Component {
                 
                 <div>
            <Layout style={{ minHeight: '100vh' }}>
-          {/* <SideNavigator /> */}
+          <SideNavigator />
 
 
              <Layout>
