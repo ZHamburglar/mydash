@@ -48,13 +48,7 @@ export const history = createHistory();
 //     const store = createStoreWithMiddleware(
 //         combineReducers({
 // 			router: router5Reducer,
-// 			searchReducer,
-// 			sidebarOCReducer,
-// 			generalSettingsReducer,
-// 			permanentSettingsReducer,
-// 			quotesReducer,
-// 			googleAuthReducer,
-// 			sideBarReducer
+
 // 		}),
 //         initialState
 //     )
@@ -65,6 +59,7 @@ export const history = createHistory();
 
 export default function configureStore(router, initialState = {}) {
     const createStoreWithMiddleware = applyMiddleware(
+        thunk,
         router5Middleware(router),
         createLogger()
     )(createStore)
@@ -73,7 +68,14 @@ export default function configureStore(router, initialState = {}) {
         combineReducers({
             router: router5Reducer,
             emails,
-            draft
+            draft,
+            searchReducer,
+			sidebarOCReducer,
+			generalSettingsReducer,
+			permanentSettingsReducer,
+			quotesReducer,
+			googleAuthReducer,
+			sideBarReducer
         }),
         initialState
     )

@@ -6,9 +6,9 @@ import Compose from './components/Compose'
 import NotFound from './components/NotFound'
 import Settings from './components/Settings'
 import Calendar from './Calendar'
+import Home from './Home';
 
 function Main({ route, emails }) {
-    console.log('henlo', route)
     const topRouteName = route.name.split('.')[0]
 
     if (topRouteName === 'inbox') {
@@ -25,6 +25,9 @@ function Main({ route, emails }) {
 
     if (topRouteName === 'calendar') {
         return <Calendar />
+    }
+    if (topRouteName === 'home'){
+        return <Home />
     }
 
     return <NotFound />

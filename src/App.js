@@ -16,37 +16,7 @@ import SideNavigator from './components/SideNav';
 
 import MainHeader from './components/MainHeader';
 
-// class App extends Component {
 
-
-//   render() {
-//       return (
-//           <div>
-//           <Layout style={{ minHeight: '100vh' }}>
-//           <SideNavigator />
-
-
-//             <Layout>
-//               <MainHeader />
-//               <Content style={{ margin: '0 16px' }}>
-
-//                 <div style={{background: '#fff', minHeight: 360 }}>
-//                   <main>
-//                       <Main />
-
-//                   </main>
-//                   Testing here
-//                 </div>
-//               </Content>
-//               <Footer style={{ textAlign: 'center' }}>
-//                 Bear Mobile © 2018 
-//               </Footer>
-//             </Layout>
-//         </Layout>
-//       </div>
-//     );
-//   }
-// }
 
 // const mapStateToProps = ({ sidebarOCReducer, sideBarReducer }) => {
 //   const { sidebarOpen, docked } = sidebarOCReducer
@@ -54,7 +24,6 @@ import MainHeader from './components/MainHeader';
 //   return { sideItems }
 // }
 
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 
 import Nav from './routes/components/Nav'
@@ -68,6 +37,7 @@ class App extends Component {
   };
 
     render(){
+        console.log("state", this.state, "props", this.props)
         return (
             <div className="mail-client">
                 <aside>

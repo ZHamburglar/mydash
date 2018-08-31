@@ -5,7 +5,7 @@ export default [
 	{ name: 'contacts', path: '/contacts' },
 	{
 		name: "home",
-		path: "/",
+		path: "/home",
 		title: "Home",
 		icon: "home",
 		description: "",

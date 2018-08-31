@@ -2,9 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { BaseLink, withRoute } from 'react-router5'
 
+console.log('nav original', "proppies")
 function Nav(props) {
     const { router } = props
-
+    console.log("router", router)
     return (
         <nav>
             <BaseLink

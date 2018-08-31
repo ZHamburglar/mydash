@@ -1,23 +1,9 @@
-
-
-
-// import { Provider } from 'react-redux';
 // import { persistStore } from 'redux-persist';
 // import { PersistGate } from 'redux-persist/lib/integration/react';
-// import { ConnectedRouter as Router } from 'react-router-redux';
 // import { RouterProvider } from 'react-router5'
-
-// // import App from './App';
-// import App from './routes/components/App';
-
-
-// import createRouter from './router';
-// import configureStore from './store';
 
 // import 'babel-polyfill';
 
-// const router = createRouter()
-// const store = configureStore(router)
 
 // 		{/* <PersistGate loading={null} persistor={persistStore(store)}> */}
 //       {/* <RouterProvider router={router}> */}
@@ -30,7 +16,7 @@ import { Provider } from 'react-redux'
 import { RouterProvider } from 'react-router5'
 import ReactDOM from 'react-dom'
 import App from './App'
-import createRouter from './create-router'
+import createRouter from './router'
 import configureStore from './store'
 // import './style.css'
 import './App.css'

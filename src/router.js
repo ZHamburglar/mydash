@@ -3,7 +3,6 @@ import browserPlugin from 'router5/plugins/browser'
 import routes from './routes'
 
 export default function configureRouter() {
-    console.log('woooo testing here', routes)
     const router = createRouter(routes, {
         allowNotFound: false,
         autoCleanUp: true,
@@ -20,6 +19,5 @@ export default function configureRouter() {
                 useHash: false
             })
         )
-    console.log('hello my friend', router)
     return router
 }
