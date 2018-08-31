@@ -4,6 +4,7 @@ import { routeNodeSelector } from 'redux-router5'
 import Inbox from './Inbox'
 import Compose from './Compose'
 import NotFound from './NotFound'
+import Settings from './Settings'
 
 function Main({ route, emails }) {
     console.log('henlo', route)
@@ -15,6 +16,10 @@ function Main({ route, emails }) {
 
     if (topRouteName === 'compose') {
         return <Compose />
+    }
+
+    if (topRouteName === 'settings') {
+        return <Settings />
     }
 
     return <NotFound />

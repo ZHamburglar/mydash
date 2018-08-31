@@ -20,6 +20,10 @@ function Nav(props) {
             <BaseLink router={router} routeName="contacts">
                 Contacts
             </BaseLink>
+            <BaseLink router={router} routeName="settings">
+                Settings
+            </BaseLink>
+
         </nav>
     )
 }
