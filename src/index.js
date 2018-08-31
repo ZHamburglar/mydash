@@ -1,7 +1,5 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
 
-// import './App.css';
+
 
 // import { Provider } from 'react-redux';
 // import { persistStore } from 'redux-persist';
@@ -21,24 +19,6 @@
 // const router = createRouter()
 // const store = configureStore(router)
 
-// console.log('henlo', store, router)
-// const wrappedApp = (
-//   <Provider store={store}>
-//       <RouterProvider router={router}>
-//         <App />
-
-//       </RouterProvider>
-
-// 	</Provider>
-// )
-
-// router.start((err, state) => {
-//   ReactDOM.render(wrappedApp, document.getElementById('root'))
-// })
-
-// // module.hot.accept();
-
-
 // 		{/* <PersistGate loading={null} persistor={persistStore(store)}> */}
 //       {/* <RouterProvider router={router}> */}
 //           {/* <App /> */}
@@ -49,10 +29,12 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { RouterProvider } from 'react-router5'
 import ReactDOM from 'react-dom'
-import App from './routes/components/App'
+import App from './App'
 import createRouter from './create-router'
 import configureStore from './store'
 import './style.css'
+import './App.css'
+
 
 const router = createRouter()
 const store = configureStore(router)
@@ -67,3 +49,5 @@ const wrappedApp = (
 router.start((err, state) => {
     ReactDOM.render(wrappedApp, document.getElementById('root'))
 })
+
+module.hot.accept();

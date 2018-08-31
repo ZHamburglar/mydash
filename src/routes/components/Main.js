@@ -5,6 +5,7 @@ import Inbox from './Inbox'
 import Compose from './Compose'
 import NotFound from './NotFound'
 import Settings from './Settings'
+import Calendar from '../Calendar'
 
 function Main({ route, emails }) {
     console.log('henlo', route)
@@ -20,6 +21,10 @@ function Main({ route, emails }) {
 
     if (topRouteName === 'settings') {
         return <Settings />
+    }
+
+    if (topRouteName === 'calendar') {
+        return <Calendar />
     }
 
     return <NotFound />

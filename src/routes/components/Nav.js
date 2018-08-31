@@ -23,6 +23,10 @@ function Nav(props) {
             <BaseLink router={router} routeName="settings">
                 Settings
             </BaseLink>
+            <BaseLink router={router} routeName="calendar">
+                Calendar
+            </BaseLink>
+
 
         </nav>
     )

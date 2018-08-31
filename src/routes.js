@@ -13,8 +13,8 @@ export default [
 	},
 	{
 		name: "calendar",
-		path: "/Calendar",
-		title: "Calendar",
+		path: "/calendar",
+		title: "calendar",
 		icon: "file",
 		description: "",
 		hidden: true

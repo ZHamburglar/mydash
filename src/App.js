@@ -13,16 +13,11 @@ import Calendar from './routes/Calendar';
 
 //Sidebar Components
 import SideNavigator from './components/SideNav';
-import Main from './routes/Main';
 
 import MainHeader from './components/MainHeader';
-const { Content, Footer, Sider } = Layout;
-const SubMenu = Menu.SubMenu;
 
 // class App extends Component {
-//   state = {
-//     collapsed: false,
-//   };
+
 
 //   render() {
 //       return (
@@ -62,12 +57,16 @@ const SubMenu = Menu.SubMenu;
 // export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import Nav from './routes/components/Nav'
 import Main from './routes/components/Main'
+const { Content, Footer, Sider } = Layout;
+const SubMenu = Menu.SubMenu;
 
 class App extends Component {
+    state = {
+    collapsed: false,
+  };
+
     render(){
         return (
             <div className="mail-client">
@@ -75,16 +74,38 @@ class App extends Component {
                     <Nav />
                 </aside>
     
-                <main>
-                    <Main emails={this.props.emails} />
-                </main>
+                
+                
+                <div>
+           <Layout style={{ minHeight: '100vh' }}>
+          {/* <SideNavigator /> */}
+
+
+             <Layout>
+              <MainHeader />
+               <Content style={{ margin: '0 16px' }}>
+
+                <div style={{ background: '#fff', minHeight: 360 }}>
+                   <main>
+                       <Main emails={this.props.emails}/>
+
+                  </main>
+                 </div>
+               </Content>
+              <Footer style={{ textAlign: 'center' }}>
+                 Bear Mobile © 2018 
+               </Footer>
+             </Layout>
+        </Layout>
+       </div>
+
+
+
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return { emails: state.emails}
-}
+const mapStateToProps = (state) => ({ emails: state.emails})
 
   export default connect(mapStateToProps)(App)
