@@ -39,7 +39,7 @@
     "superagent": "^3.8.3"
   },
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --config ./webpack.config.js --mode development",
+    "start": "webpack-dev-server --progress --colors --config ./webpack.config.js --mode development --open",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "test": "react-scripts test --env=jsdom",

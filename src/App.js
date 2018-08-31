@@ -19,7 +19,7 @@ import Calendar from './routes/Calendar';
 import SBYNAB from './components/SidebarItems/SBYNAB';
 import SBCalendar from './components/SidebarItems/SBCalendar';
 
-// import NavigationBar from './components/NavigationBar';
+import SideNavigator from './components/SideNav';
 
 import MainHeader from './components/MainHeader';
 const { Content, Footer, Sider } = Layout;
@@ -49,14 +49,6 @@ class App extends Component {
   
   renderCalendar = () => <Calendar />
 
-  // renderSideBarItems = (items) => console.log('hello', items)
-  // (items.map(item => (
-  //         <Menu.Item key="44" onClick={() => this.props.changePageCalendar()}>
-  //           <Icon type="file" />
-  //           <span>{item}</span>
-  //         </Menu.Item>
-  // )))
-
   renderSideBarItems = (items) => (items.map((item, index) => (
     <Menu.Item key={item.id}>
       Hello
@@ -67,10 +59,14 @@ class App extends Component {
 
   
   render() {
-    return (
-      <div>
+      return (
+          <div>
           <Layout style={{ minHeight: '100vh' }}>
-            <Sider
+          <SideNavigator />
+
+
+
+            {/* <Sider
               collapsible
               collapsed={this.state.collapsed}
               onCollapse={this.onCollapse}
@@ -110,7 +106,9 @@ class App extends Component {
                     <span>Settings</span>
                   </Menu.Item>
                 </Menu>
-            </Sider>
+            </Sider> */}
+
+
             <Layout>
               <MainHeader />
               <Content style={{ margin: '0 16px' }}>
