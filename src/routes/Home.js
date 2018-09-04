@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import * as actions from '../actions'
+import * as actions from '../actions';
 
 import WeatherComponent from '../components/WeatherComponent'
 
@@ -18,7 +18,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    console.log('props', this.props)
   }
 
   renderWeather = () => {

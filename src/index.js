@@ -21,6 +21,10 @@ import configureStore from './store'
 // import './style.css'
 import './App.css'
 
+require('dotenv').config()
+
+
+
 
 const router = createRouter()
 const store = configureStore(router)
@@ -33,9 +37,12 @@ const wrappedApp = (
 )
 
 console.log("store", store)
+console.log(process.env.NODE_ENV, process.env.REACT_APP_TESTKEY);
+
 
 router.start((err, state) => {
     ReactDOM.render(wrappedApp, document.getElementById('root'))
 })
+
 
 module.hot.accept();

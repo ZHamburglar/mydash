@@ -53,6 +53,12 @@ Week of 8/24:
 
 - [x] Changing to Webpack instead of standard
 
+Week of 8/31:
+
+- [x] Changed routing from React Router Redux to Router5
+
+- [x] Added package env-cmd for easier use of .env
+
 
 
 <!-- https://stackoverflow.com/questions/29297154/github-invalid-username-or-password -->
