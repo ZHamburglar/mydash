@@ -40,9 +40,6 @@ class App extends Component {
         console.log("state", this.state, "props", this.props)
         return (
             <div className="mail-client">
-                <aside>
-                    <Nav />
-                </aside>
     
                 
                 
@@ -57,7 +54,7 @@ class App extends Component {
 
                 <div style={{ background: '#fff', minHeight: 360 }}>
                    <main>
-                       <Main emails={this.props.emails}/>
+                       <Main />
 
                   </main>
                  </div>

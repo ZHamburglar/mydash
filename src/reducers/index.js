@@ -6,7 +6,10 @@ import permanentSettingsReducer from './permanent_settings_reducer';
 import quotesReducer from './quotes_reducer';
 import googleAuthReducer from './google_auth_reducer';
 import sideBarReducer from './sidebar_reducer';
+import YNABReducer from './YNAB_reducer';
+
 import { router5Reducer } from 'redux-router5';
+
 
 
 
@@ -18,5 +21,6 @@ export const reducers = combineReducers({
   permanentSettingsReducer,
   quotesReducer,
   googleAuthReducer,
-  sideBarReducer
+  sideBarReducer,
+  YNABReducer
 });

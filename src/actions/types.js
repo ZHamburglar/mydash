@@ -22,3 +22,5 @@ export const GOOGLE_LOGIN = 'google_login';
 
 export const SB_ADDITEM = 'sb_additem';
 export const SB_REMOVEITEM = 'sb_removeitem';
+
+export const GET_YNAB = 'get_ynab';

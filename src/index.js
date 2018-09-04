@@ -32,6 +32,8 @@ const wrappedApp = (
     </Provider>
 )
 
+console.log("store", store)
+
 router.start((err, state) => {
     ReactDOM.render(wrappedApp, document.getElementById('root'))
 })

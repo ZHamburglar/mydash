@@ -5,7 +5,7 @@ export default [
 	{ name: 'contacts', path: '/contacts' },
 	{
 		name: "home",
-		path: "/home",
+		path: "/",
 		title: "Home",
 		icon: "home",
 		description: "",
@@ -29,7 +29,7 @@ export default [
 	},
 	{
 		name: "ynab",
-		path: "/YNAB",
+		path: "/ynab",
 		title: "YNAB",
 		icon: "chart-line",
 		description: "",

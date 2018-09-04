@@ -8,7 +8,6 @@ import storage from 'redux-persist/lib/storage';
 import { router5Middleware, router5Reducer } from 'redux-router5';
 import { createLogger } from 'redux-logger';
 
-import { emails, draft } from '../reducers';
 
 import searchReducer from '../reducers/search_reducer';
 import sidebarOCReducer from '../reducers/sidebar_oc_reducer';
@@ -20,12 +19,6 @@ import sideBarReducer from '../reducers/sidebar_reducer';
 
 
 export const history = createHistory();
-
-// const persistConfig = {
-//     key: 'root', 
-// 	storage,
-// 	whitelist: ['permanentSettingsReducer', 'sideBarReducer']
-// };
 
 // export const store = createStore(
 // 	  persistReducer(persistConfig, reducers)
@@ -67,8 +60,6 @@ export default function configureStore(router, initialState = {}) {
     const store = createStoreWithMiddleware(
         combineReducers({
             router: router5Reducer,
-            emails,
-            draft,
             searchReducer,
 			sidebarOCReducer,
 			generalSettingsReducer,

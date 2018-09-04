@@ -1,23 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { routeNodeSelector } from 'redux-router5'
-import Inbox from './components/Inbox'
-import Compose from './components/Compose'
-import NotFound from './components/NotFound'
-import Settings from './components/Settings'
-import Calendar from './Calendar'
+
+import NotFound from './components/NotFound';
+import Settings from './Settings';
+import Calendar from './Calendar';
+import YNAB from './YNABCharts';
 import Home from './Home';
 
-function Main({ route, emails }) {
+function Main({ route }) {
     const topRouteName = route.name.split('.')[0]
-
-    if (topRouteName === 'inbox') {
-        return <Inbox emails={emails} />
-    }
-
-    if (topRouteName === 'compose') {
-        return <Compose />
-    }
 
     if (topRouteName === 'settings') {
         return <Settings />
@@ -29,6 +21,10 @@ function Main({ route, emails }) {
     if (topRouteName === 'home'){
         return <Home />
     }
+    if (topRouteName === 'ynab'){
+        return <YNAB />
+    }
+
 
     return <NotFound />
 }
