@@ -1,26 +1,76 @@
 import thunk from 'redux-thunk';
 import { routerMiddleware } from 'react-router-redux';
-// import { createEpicMiddleware } from 'redux-observable';
 import createHistory from 'history/createBrowserHistory';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { reducers } from '../reducers';
-// import { epics } from './epics';
+import { router5Middleware, router5Reducer } from 'redux-router5';
+import { createLogger } from 'redux-logger';
+
+
+import searchReducer from '../reducers/search_reducer';
+import sidebarOCReducer from '../reducers/sidebar_oc_reducer';
+import generalSettingsReducer from '../reducers/general_settings_reducer';
+import permanentSettingsReducer from '../reducers/permanent_settings_reducer';
+import quotesReducer from '../reducers/quotes_reducer';
+import googleAuthReducer from '../reducers/google_auth_reducer';
+import sideBarReducer from '../reducers/sidebar_reducer';
+
 
 export const history = createHistory();
 
-// const epicMiddleware = createEpicMiddleware(epics);
+// export const store = createStore(
+// 	  persistReducer(persistConfig, reducers)
+// 	, {}
+// 	, compose(applyMiddleware(thunk, routerMiddleware(history)))
+// );
 
-const persistConfig = {
-    key: 'root', 
-	storage,
-	whitelist: ['permanentSettingsReducer', 'sideBarReducer']
-};
+// const persistConfig = {
+//     key: 'root', 
+// 	storage,
+// 	whitelist: ['permanentSettingsReducer', 'sideBarReducer']
+// };
 
-export const store = createStore(
-	  persistReducer(persistConfig, reducers)
-	, {}
-	, compose(applyMiddleware(thunk, routerMiddleware(history)))
-);
+// export default function configureStore(router, initialState = {}) {
+//     const createStoreWithMiddleware = applyMiddleware(
+//         router5Middleware(router),
+//         createLogger()
+//     )(createStore)
+
+//     const store = createStoreWithMiddleware(
+//         combineReducers({
+// 			router: router5Reducer,
+
+// 		}),
+//         initialState
+//     )
+
+//     // window.store = store
+//     return store
+// }
+
+export default function configureStore(router, initialState = {}) {
+    const createStoreWithMiddleware = applyMiddleware(
+        thunk,
+        router5Middleware(router),
+        createLogger()
+    )(createStore)
+
+    const store = createStoreWithMiddleware(
+        combineReducers({
+            router: router5Reducer,
+            searchReducer,
+			sidebarOCReducer,
+			generalSettingsReducer,
+			permanentSettingsReducer,
+			quotesReducer,
+			googleAuthReducer,
+			sideBarReducer
+        }),
+        initialState
+    )
+
+    window.store = store
+    return store
+}

@@ -93,12 +93,11 @@ const homePageStyle = {
   position: 'relative'
 }
 
-const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer, quotesReducer, sideBarReducer }) => {
+const mapStateToProps = ({ generalSettingsReducer, permanentSettingsReducer, quotesReducer }) => {
   const { loadingWeather , weather, weatherError } = generalSettingsReducer
   const { zipCode } = permanentSettingsReducer
   const { quote, loadingQuote, errorQuote } = quotesReducer
-  const { sideItems } = sideBarReducer
-  return { loadingWeather , weather, weatherError, zipCode, quote, loadingQuote, errorQuote, sideItems }
+  return { loadingWeather , weather, weatherError, zipCode, quote, loadingQuote, errorQuote }
 }
 
 
