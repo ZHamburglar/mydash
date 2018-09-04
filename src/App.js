@@ -37,7 +37,6 @@ class App extends Component {
   };
 
     render(){
-        console.log("state", this.state, "props", this.props)
         return (
             <div className="mail-client">
     

@@ -1,6 +1,7 @@
 import {
-    GET_YNAB_DATA,
-    GET_YNAB_ERROR
+    FETCH_YNAB_DATA,
+    GET_YNAB_ERROR,
+    YNAB_DATA_FOUND
 } from '../actions/types';
 
 
@@ -18,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
                 ynabError: 'There was an error with YNAB',
                 loadingYNAB: false
             };
-        case GET_YNAB_DATA:
+        case FETCH_YNAB_DATA:
             // console.log('getting YNAB Data')
             return { ...state,
                 loadingYNAB: true
