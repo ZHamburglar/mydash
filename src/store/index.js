@@ -33,23 +33,6 @@ export const history = createHistory();
 // 	whitelist: ['permanentSettingsReducer', 'sideBarReducer']
 // };
 
-// export default function configureStore(router, initialState = {}) {
-//     const createStoreWithMiddleware = applyMiddleware(
-//         router5Middleware(router),
-//         createLogger()
-//     )(createStore)
-
-//     const store = createStoreWithMiddleware(
-//         combineReducers({
-// 			router: router5Reducer,
-
-// 		}),
-//         initialState
-//     )
-
-//     // window.store = store
-//     return store
-// }
 
 export default function configureStore(router, initialState = {}) {
     const createStoreWithMiddleware = applyMiddleware(

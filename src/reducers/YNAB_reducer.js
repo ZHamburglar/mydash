@@ -8,7 +8,7 @@ import {
 const INITIAL_STATE = {
     YNABData: '',
     loadingYNAB: false,
-    ynabError: ''
+    ynabError: '',
 }
 
 
