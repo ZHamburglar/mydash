@@ -16,6 +16,7 @@ import permanentSettingsReducer from '../reducers/permanent_settings_reducer';
 import quotesReducer from '../reducers/quotes_reducer';
 import googleAuthReducer from '../reducers/google_auth_reducer';
 import sideBarReducer from '../reducers/sidebar_reducer';
+import YNABReducer from '../reducers/YNAB_reducer';
 
 
 export const history = createHistory();
@@ -66,7 +67,8 @@ export default function configureStore(router, initialState = {}) {
 			permanentSettingsReducer,
 			quotesReducer,
 			googleAuthReducer,
-			sideBarReducer
+            sideBarReducer,
+            YNABReducer
         }),
         initialState
     )

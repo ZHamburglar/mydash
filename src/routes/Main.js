@@ -14,7 +14,6 @@ function Main({ route }) {
     if (topRouteName === 'settings') {
         return <Settings />
     }
-
     if (topRouteName === 'calendar') {
         return <Calendar />
     }
@@ -24,8 +23,6 @@ function Main({ route }) {
     if (topRouteName === 'ynab'){
         return <YNAB />
     }
-
-
     return <NotFound />
 }
 

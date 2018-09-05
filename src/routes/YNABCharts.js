@@ -4,15 +4,15 @@ import * as actions from '../actions';
 
 class YNABCharts extends Component {
 
-  // componentWillMount() {
-  //   this.props.GET_YNAB_DATA('test')
-  //   console.log('environment', process.env.NODE_ENV, process.env.YNAB_API_KEY)
-  // }
+  componentWillMount() {
+    this.props.GET_YNAB_DATA('test')
+    console.log('environment', process.env.NODE_ENV, process.env.YNAB_API_KEY)
+  }
 
   renderProps = () => {
-    console.log(this.props)
     if (this.props.loadingYNAB){
       console.log("updated props: ", this.props)
+
       return <div>LOADING</div>
     } else {
       console.log("updated props2: ", this.props)
@@ -38,9 +38,14 @@ class YNABCharts extends Component {
 }
 
 
+// const mapStateToProps = ({ YNABReducer }) => {
+//     const { loadingYNAB, ynabError } = YNABReducer
+//     return { loadingYNAB, ynabError }
+// }
+
 const mapStateToProps = ({ YNABReducer }) => {
-    const { YNABData, loadingYNAB, ynabError } = YNABReducer
-    return { YNABData, loadingYNAB, ynabError }
+  const { loadingYNAB, YNABData, ynabError } = YNABReducer
+  return { loadingYNAB, YNABData, ynabError }
 }
 
 export default connect(mapStateToProps, actions)(YNABCharts);

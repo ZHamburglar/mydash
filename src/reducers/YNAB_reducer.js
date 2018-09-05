@@ -6,7 +6,7 @@ import {
 
 
 const INITIAL_STATE = {
-    YNABData: [],
+    YNABData: '',
     loadingYNAB: false,
     ynabError: ''
 }

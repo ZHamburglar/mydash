@@ -7,9 +7,6 @@ import { bindActionCreators } from 'redux';
 
 import { Layout, Menu, Icon } from 'antd';
 
-import Home from './routes/Home';
-import Settings from './routes/Settings';
-import Calendar from './routes/Calendar';
 
 //Sidebar Components
 import SideNavigator from './components/SideNav';
@@ -26,7 +23,6 @@ import MainHeader from './components/MainHeader';
 
 
 
-import Nav from './routes/components/Nav'
 import Main from './routes/Main'
 const { Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
