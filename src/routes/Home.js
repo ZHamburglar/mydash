@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 
-import WeatherComponent from '../components/WeatherComponent'
-
 class Home extends Component {
 
   componentWillUnmount() {

@@ -6,21 +6,9 @@ import * as actions from '../actions'
 
 class WeatherComponent extends Component {
 
-
-
-
-  componentWillMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
-
   renderWeather = () => {
     console.log("weather stuff")
   }
-
-  
 
   render() {
     return (

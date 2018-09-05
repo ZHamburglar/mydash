@@ -15,7 +15,6 @@ const WEATHER_FIN_URL=',us&APPID=f5a95128aad4a9638e86353dc200192e&units=imperial
 export const getWeather = (zip, callback) => async(dispatch) => {
     try {
         const query = `${WEATHER_ROOT_URL}${zip}${WEATHER_FIN_URL}`
-        // console.log('query: ', query, zip)
         dispatch({ type: GET_WEATHER })
         const { data } = await axios.get(query)
         // console.log("data", data)

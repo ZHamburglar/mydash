@@ -1,7 +1,4 @@
 export default [
-	{ name: 'inbox', path: '/inbox' },
-    { name: 'inbox.message', path: '/message/:id' },
-    { name: 'compose', path: '/compose' },
 	{ name: 'contacts', path: '/contacts' },
 	{
 		name: "home",
@@ -9,7 +6,7 @@ export default [
 		title: "Home",
 		icon: "home",
 		description: "",
-		hidden: true
+		hidden: false
 	},
 	{
 		name: "calendar",
@@ -25,7 +22,7 @@ export default [
 		title: "Settings",
 		icon: "setting",
 		description: "",
-		hidden: true
+		hidden: false
 	},
 	{
 		name: "ynab",

@@ -54,7 +54,7 @@ export default function configureStore(router, initialState = {}) {
     const createStoreWithMiddleware = applyMiddleware(
         thunk,
         router5Middleware(router),
-        createLogger()
+        // createLogger()
     )(createStore)
 
     const store = createStoreWithMiddleware(

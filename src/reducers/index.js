@@ -22,5 +22,5 @@ export const reducers = combineReducers({
   quotesReducer,
   googleAuthReducer,
   sideBarReducer,
-  YNABReducer
+  YNABReducer,
 });
