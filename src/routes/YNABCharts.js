@@ -82,11 +82,6 @@ class YNABCharts extends Component {
     return (
       <div style={{ padding: 24 }}>
           <p>YNAB</p>
-          <p>YNAB</p>
-          <p>YNAB</p>
-          <p>YNAB</p>
-          <p>YNAB</p>
-          <p>YNAB</p>
           {this.renderProps()}
           <Bar
               data={data}
@@ -100,14 +95,9 @@ class YNABCharts extends Component {
 }
 
 
-// const mapStateToProps = ({ YNABReducer }) => {
-//     const { loadingYNAB, ynabError } = YNABReducer
-//     return { loadingYNAB, ynabError }
-// }
-
 const mapStateToProps = ({ YNABReducer }) => {
-  const { loadingYNAB, YNABData, ynabError } = YNABReducer
-  return { loadingYNAB, YNABData, ynabError }
+  const { loadingYNAB, YNABData, ynabError, YNABDataMonthlyChart } = YNABReducer
+  return { loadingYNAB, YNABData, ynabError, YNABDataMonthlyChart }
 }
 
 export default connect(mapStateToProps, actions)(YNABCharts);

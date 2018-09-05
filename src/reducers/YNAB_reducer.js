@@ -7,6 +7,7 @@ import {
 
 const INITIAL_STATE = {
     YNABData: '',
+    YNABDataMonthlyChart: '',
     loadingYNAB: false,
     ynabError: '',
 }

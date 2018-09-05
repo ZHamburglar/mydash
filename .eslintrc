@@ -1,4 +1,4 @@
-{
+ {
     "extends": [
         "plugin:flowtype/recommended",
         "airbnb",
@@ -10,6 +10,10 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "array-bracket-spacing": ["warn", "never"],
         "object-curly-spacing": [1],
-        "prefer-destructuring": ["error", { "object": true, "array": false }]
+        "prefer-destructuring": ["error", { "object": true, "array": false }],
+        "no-else-return": 1,
+        "vars-on-top": 0,
+        "no-plusplus": 0,
+        "no-console": 0    
     }
 }
