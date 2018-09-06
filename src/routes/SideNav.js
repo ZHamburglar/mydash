@@ -35,7 +35,7 @@ class SideNavigator extends Component {
     		>
     			<div className="logo" />
     			<Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-    				<Menu.Item key="1" onClick={() => console.log("home")}>
+    				<Menu.Item key="1">
     					<Icon type="home" />
     					<span>Home</span>
     					<BaseLink router={this.props.router} routeName="Home" />   
@@ -43,15 +43,14 @@ class SideNavigator extends Component {
     				<Menu.Item key="9">
     					<Icon type="file" />
     					<span>YNAB</span>
-    					<BaseLink router={router} routeName="YNAB" />  
+    					<BaseLink router={router} routeOptions={{reload: true}} routeName="YNAB" />  
     				</Menu.Item>
-    				<Menu.Item key="22" onClick={() => console.log("setting")}>
+    				<Menu.Item key="22">
     					<Icon type="setting" />
     					<span>Calendar</span>
     					<BaseLink router={router} routeName="Calendar" />                 
     				</Menu.Item>
-    				{/* {this.renderSideBarItems(this.props.sideItems)} */}
-    				<Menu.Item key="10" onClick={() => console.log("setting")}>
+    				<Menu.Item key="10">
     					<Icon type="setting" />
     					<span>Settings</span>
     					<BaseLink router={this.props.router} routeName="Settings" />                    

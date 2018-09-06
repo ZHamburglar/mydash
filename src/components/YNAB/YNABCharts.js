@@ -3,6 +3,10 @@ import { Bar } from 'react-chartjs-2';
 
 import PropTypes from 'prop-types';
 
+import { Form, Input, DatePicker, Col, TimePicker, Select, Cascader, InputNumber, Dropdown, Menu, Button, Icon, message } from 'antd';
+const FormItem = Form.Item;
+const Option = Select.Option;
+
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
@@ -19,9 +23,40 @@ class YNABCharts extends Component {
     	this.props.GET_YNAB_DATA();
     	console.log('environment', process.env.NODE_ENV, process.env.YNAB_API_KEY)
     };
+    
+    handleButtonClick = (e) => {
+        message.info('Click on left button.');
+        console.log('click left button', e);
+    }
+
+    handleMenuClick = (e) => {
+        message.info('Click on menu item.');
+        console.log('click', e);
+      }
+
+      handleChange = (value) => {
+        console.log(`selected ${value}`);
+      }
+      
+
+
 
     render() {
-    	const data2 = []
+        const data2 = []
+        const menu = (
+            <Select     
+                placeholder="Select a person"
+                style={{ width: 120 }} onChange={this.handleChange}>
+            <Option value="jack">Jack</Option>
+            <Option value="lucy">Lucy</Option>
+            <Option value="disabled" disabled>Disabled</Option>
+            <Option value="Yiminghe">yiminghe</Option>
+          </Select>
+          );
+
+
+
+
     	this.addTransAmounts = (transaction) => {
     		const amount = transaction.amount / 1000;
     		let month = transaction.date.split('-')[1] -1
@@ -153,6 +188,9 @@ class YNABCharts extends Component {
     	return (
     		<div style={{ padding: 24 }}>
     			<p>YNAB</p>
+                <Dropdown.Button onClick={this.handleButtonClick} overlay={menu}>
+                    Dropdown
+                </Dropdown.Button>
     			{this.renderProps()}
     			<Bar
     				data={data}
@@ -160,13 +198,6 @@ class YNABCharts extends Component {
     				height={50}
     				options={chartOptions}
     			/>
-    			{/* <Scatter
-              data={data3}
-              width={100}
-              height={50}
-              options={options2}
-          /> */}
-          
     		</div>
     	);
     }

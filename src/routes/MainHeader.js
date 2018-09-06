@@ -14,14 +14,7 @@ class MainHeader extends Component {
 		const { route } = this.props
 		console.log('header props:', route)
 		return (
-			<Header className="header">
-				<div className="logo" />
-				<Menu
-					theme="dark"
-					mode="horizontal"
-					defaultSelectedKeys={['2']}
-					style={{ lineHeight: '64px' }}
-				>
+			<Header className="header" style={{color: '#fff'}}>
 					<Col span={8} style={{ textAlign: 'center', verticalAlign: 'middle'}}>
                     Hi
 					</Col>
@@ -31,7 +24,6 @@ class MainHeader extends Component {
 					<Col span={8} style={{ textAlign: 'center', verticalAlign: 'middle'}}>
                     hi
 					</Col>
-				</Menu>
 			</Header>
 		);
 	}
