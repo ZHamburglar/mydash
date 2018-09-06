@@ -1,7 +1,7 @@
 export default [
 	{ name: 'contacts', path: '/contacts' },
 	{
-		name: "home",
+		name: "Home",
 		path: "/",
 		title: "Home",
 		icon: "home",
@@ -9,7 +9,7 @@ export default [
 		hidden: false
 	},
 	{
-		name: "calendar",
+		name: "Calendar",
 		path: "/calendar",
 		title: "calendar",
 		icon: "file",
@@ -17,7 +17,7 @@ export default [
 		hidden: true
 	},
 	{
-		name: "settings",
+		name: "Settings",
 		path: "/Settings",
 		title: "Settings",
 		icon: "setting",
@@ -25,7 +25,7 @@ export default [
 		hidden: false
 	},
 	{
-		name: "ynab",
+		name: "YNAB",
 		path: "/ynab",
 		title: "YNAB",
 		icon: "chart-line",
