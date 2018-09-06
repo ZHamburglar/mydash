@@ -2,25 +2,25 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { routeNodeSelector } from 'redux-router5'
 
-import NotFound from './components/NotFound';
-import Settings from './Settings';
-import Calendar from './Calendar';
+import NotFound from '../components/NotFound';
+import Settings from '../components/Settings/Settings';
+import Calendar from '../components/Calendar/Calendar';
 import YNAB from '../components/YNAB/YNABCharts';
-import Home from './Home';
+import Home from '../components/Home/Home';
 
 function Main({ route }) {
 	const topRouteName = route.name.split('.')[0]
 
-	if (topRouteName === 'settings') {
+	if (topRouteName === 'Settings') {
 		return <Settings />
 	}
-	if (topRouteName === 'calendar') {
+	if (topRouteName === 'Calendar') {
     	return <Calendar />
 	}
-	if (topRouteName === 'home'){
+	if (topRouteName === 'Home'){
 		return <Home />
 	}
-	if (topRouteName === 'ynab'){
+	if (topRouteName === 'YNAB'){
 		return <YNAB />
 	}
 	return <NotFound />

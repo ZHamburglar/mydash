@@ -11,8 +11,10 @@
     "babel-polyfill": "^6.26.0",
     "chart.js": "^2.7.2",
     "connected-react-router": "^4.3.0",
+    "css-loader": "^1.0.0",
     "dotenv": "^6.0.0",
     "env-cmd": "^8.0.2",
+    "file-loader": "^2.0.0",
     "formvalidation": "^0.6.2-dev",
     "fs": "0.0.1-security",
     "history": "^4.7.2",
@@ -44,8 +46,10 @@
     "redux-router5": "5.5.0",
     "redux-thunk": "^2.2.0",
     "router5": "^6.4.2",
+    "style-loader": "^0.23.0",
     "styled-components": "^3.4.0",
-    "superagent": "^3.8.3"
+    "superagent": "^3.8.3",
+    "url-loader": "^1.1.1"
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development env-cmd .env.local webpack-dev-server --progress --colors --config ./webpack.config.js --mode development --open",

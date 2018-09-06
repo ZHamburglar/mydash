@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Switch from "react-switch";
 
-import SettingGeneral from '../components/SettingsForms/SettingsGeneral';
-import SettingCalendar from '../components/SettingsForms/SettingCalendar';
-import SettingYNAB from '../components/SettingsForms/SettingsYNAB';
+import SettingGeneral from '../SettingsForms/SettingsGeneral';
+import SettingCalendar from '../SettingsForms/SettingCalendar';
+import SettingYNAB from '../SettingsForms/SettingsYNAB';
 
 
 
