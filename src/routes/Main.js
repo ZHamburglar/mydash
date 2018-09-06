@@ -5,7 +5,7 @@ import { routeNodeSelector } from 'redux-router5'
 import NotFound from './components/NotFound';
 import Settings from './Settings';
 import Calendar from './Calendar';
-import YNAB from './YNABCharts';
+import YNAB from '../components/YNAB/YNABCharts';
 import Home from './Home';
 
 function Main({ route }) {
