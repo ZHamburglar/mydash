@@ -59,6 +59,12 @@ Week of 8/31:
 
 - [x] Added package env-cmd for easier use of .env
 
+- [x] YNAB API added
+
+- [x] Updated eslint to be more strict and in line with good practices
+
+- [x] YNAB Chart now populating with YNAB Data
+
 
 
 <!-- https://stackoverflow.com/questions/29297154/github-invalid-username-or-password -->

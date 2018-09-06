@@ -8,12 +8,18 @@
     "plugins": ["prettier", "flowtype"],
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/destructuring-assignment": [true, { "extensions": [".jsx"] }],
+        "react/prop-types": [1, { "ignore": 0 }],
+        "indent": ["error", "tab"],
+        "react/require-default-props": [1, { "forbidDefaultForRequired": 1 }],
         "array-bracket-spacing": ["warn", "never"],
+        "prefer-const": 2,
         "object-curly-spacing": [1],
         "prefer-destructuring": ["error", { "object": true, "array": false }],
         "no-else-return": 0,
         "vars-on-top": 0,
         "no-plusplus": 0,
-        "no-console": 0    
+        "no-console": 0,
+        "no-unused-vars": 1    
     }
 }
