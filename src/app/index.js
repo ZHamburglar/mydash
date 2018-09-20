@@ -10,7 +10,9 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router5';
 
-import App from './containers/App';
+import App from './containers/App3';
+import App2 from './containers/App2';
+
 
 const Root = ({ router, store, children }) => (
 	<Provider store={store}>
@@ -19,6 +21,7 @@ const Root = ({ router, store, children }) => (
 				{ children }
 
 				<App />
+				<App2 />
 			</div>
 		</RouterProvider>
 	</Provider>
