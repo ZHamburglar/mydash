@@ -68,8 +68,8 @@
     "redux-logger": "^3.0.6",
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
-    "url-loader": "0.5.8",
-    "webpack": "2.6.1",
+    "url-loader": "^1.1.1",
+    "webpack": "^2.6.1",
     "webpack-dev-server": "2.4.5",
     "webpack-manifest-plugin": "1.1.0",
     "webpack-node-externals": "^1.6.0",
@@ -141,7 +141,13 @@
       "import/no-named-as-default": 0,
       "import/no-unresolved": 2,
       "import/prefer-default-export": 0,
-      "indent": ["error", "tab"],
+      "indent": [
+        2,
+        2,
+        {
+          "SwitchCase": 1
+        }
+      ],
       "max-len": 1,
       "newline-per-chained-call": 0,
       "no-confusing-arrow": 0,
@@ -149,7 +155,6 @@
       "no-use-before-define": 0,
       "no-mixed-operators": 1,
       "no-plusplus": 0,
-      "no-tabs": 0,
       "prefer-template": 2,
       "prefer-promise-reject-errors": 0,
       "class-methods-use-this": 0,
@@ -160,8 +165,6 @@
         "multiline"
       ],
       "react/jsx-filename-extension": 0,
-      "react/jsx-indent": ["error", "tab"],
-      "react/jsx-indent-props": ["error", "tab"],
       "react/jsx-no-target-blank": 0,
       "react/no-did-mount-set-state": 1,
       "react/require-extension": 0,
