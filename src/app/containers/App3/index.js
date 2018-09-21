@@ -54,6 +54,7 @@ class App extends Component {
 								<Menu.Item key="9">
 									<Icon type="file" />
 									<span>YNAB</span>
+									<Link routeName="ynab" />
 								</Menu.Item>
 								<Menu.Item key="22">
 									<Icon type="setting" />

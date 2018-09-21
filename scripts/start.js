@@ -56,7 +56,7 @@ choosePort(HOST, CLIENT_PORT)
 		const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 		const appName = require(paths.appPackageJson).name;
 		const urls = prepareUrls(protocol, HOST, port);
-		urls.localUrlForBrowser = `https://mydash.io:${port}`;
+		urls.localUrlForBrowser = `https://localhost:${port}`;
 
 		// We do this before importing the wepack.config.client.dev otherwise
 		// REACT_APP_CLIENT_PORT won't be set at new webpack.DefinePlugin(env.stringified)
@@ -89,6 +89,7 @@ choosePort(HOST, CLIENT_PORT)
 			if (isInteractive) {
 				clearConsole();
 			}
+			
 			console.log(chalk.cyan(`Starting the client on port ${port}...\n`));
 
 			choosePort(HOST, SERVER_PORT)
@@ -106,7 +107,7 @@ choosePort(HOST, CLIENT_PORT)
 
 					compiler.watch({ // watch options:
 						aggregateTimeout: 300,
-					}, function(err, stats) {
+					}, (err, stats) => {
 						if (err)
 							console.log('error on webpack server', err);
 
@@ -115,14 +116,14 @@ choosePort(HOST, CLIENT_PORT)
 							const nodemon = exec('nodemon --watch build/server build/server/bundle.js build/server/bundle.js')
 
 							// This is to outpout in the terminal the child process
-							nodemon.stdout.on('data', function (data) {
+							nodemon.stdout.on('data', (data) => {
 								console.log(data.toString());
 							});
-							nodemon.on('exit', function (code) {
+							nodemon.on('exit', (code) => {
 								console.log('nodemon process exited with code ' + code.toString());
 							});
 
-							console.log(chalk.yellow(`Starting the server on portzzzz ${portServer}...\n`));
+							console.log(chalk.yellow(`Starting the server on port ${portServer}...\n`));
 							setTimeout(() => { openBrowser(urls.localUrlForBrowser) }, 1000);
 						}
 					});
@@ -134,8 +135,8 @@ choosePort(HOST, CLIENT_PORT)
 					process.exit(1);
 				});
 		});
-		['SIGINT', 'SIGTERM'].forEach(function(sig) {
-			process.on(sig, function() {
+		['SIGINT', 'SIGTERM'].forEach((sig) => {
+			process.on(sig, () => {
 				clientServer.close();
 				process.exit();
 			})

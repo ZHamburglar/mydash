@@ -35,6 +35,11 @@ export default [
 		loadComponent: () => System.import('../containers/Calendar'),
 	},
 	{
+		path: '/ynab',
+		name: 'ynab',
+		loadComponent: () => System.import('../containers/YNAB'),
+	},
+	{
 		path: '/async?base',
 		name: 'async',
 		prefetch: require('../containers/Async/prefetch'),
