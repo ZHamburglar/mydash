@@ -52,6 +52,8 @@ const App = ({ childRoute }) => (
 	</div>
 );
 
+console.log('props');
+
 App.propTypes = { childRoute: PropTypes.node };
 
 

@@ -30,6 +30,11 @@ export default [
 		],
 	},
 	{
+		path: '/calendar',
+		name: 'calendar',
+		loadComponent: () => System.import('../containers/Calendar'),
+	},
+	{
 		path: '/async?base',
 		name: 'async',
 		prefetch: require('../containers/Async/prefetch'),

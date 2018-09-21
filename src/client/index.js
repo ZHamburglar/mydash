@@ -7,6 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import configureStore from '../app/redux/index';
 import { configureRouter, startRouter } from '../app/router';
+import './index.css';
 
 const router = configureRouter();
 const store = configureStore(router, window.APP_STATE);

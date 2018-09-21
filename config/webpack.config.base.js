@@ -83,6 +83,7 @@ module.exports = {
         ],
         include: paths.appSrc,
       },
+      
       // ** ADDING/UPDATING LOADERS **
       // The "file" loader handles all assets unless explicitly excluded.
       // The `exclude` list *must* be updated with every change to loader extensions.
