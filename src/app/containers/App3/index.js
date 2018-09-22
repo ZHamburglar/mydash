@@ -23,6 +23,7 @@ class App extends Component {
 
 	render() {
 		const { route, childRoute } = this.props;
+		console.log('App3: ', this.props);
 		return (
 			<div>
 				<LoadingOverlay />
@@ -59,7 +60,7 @@ class App extends Component {
 								<Menu.Item key="22">
 									<Icon type="setting" />
 									<span>Calendar</span>
-									<Link routeName="parent" />
+									<Link routeName="calendar" />
 								</Menu.Item>
 								<Menu.Item key="10">
 									<Icon type="setting" />

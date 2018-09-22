@@ -13,11 +13,13 @@
   "dependencies": {
     "antd": "^3.8.0",
     "axios": "^0.18.0",
+    "chart.js": "^2.7.2",
     "express": "^4.15.3",
     "htmlescape": "^1.1.1",
     "isomorphic-fetch": "2.2.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router5": "^5.4.0",
@@ -144,7 +146,10 @@
       "import/no-named-as-default": 1,
       "import/no-unresolved": 2,
       "import/prefer-default-export": 0,
-      "indent": ["error", "tab"],
+      "indent": [
+        "error",
+        "tab"
+      ],
       "max-len": 1,
       "newline-per-chained-call": 0,
       "no-confusing-arrow": 0,
@@ -163,8 +168,14 @@
         "multiline"
       ],
       "react/jsx-filename-extension": 0,
-      "react/jsx-indent": ["error", "tab"],
-      "react/jsx-indent-props": ["error", "tab"],
+      "react/jsx-indent": [
+        "error",
+        "tab"
+      ],
+      "react/jsx-indent-props": [
+        "error",
+        "tab"
+      ],
       "react/jsx-no-target-blank": 0,
       "react/no-did-mount-set-state": 1,
       "react/prefer-stateless-function": "off",
