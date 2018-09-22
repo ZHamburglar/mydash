@@ -1,3 +1,5 @@
+# myDash [![CircleCI](https://circleci.com/gh/ZHamburglar/mydash.svg?style=svg)](https://circleci.com/gh/ZHamburglar/mydash/)
+
 APIs:
 
 Google Calendar: https://developers.google.com/calendar/
